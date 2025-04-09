@@ -1,11 +1,11 @@
 import { FC } from "react";
-import Card from "@/components/Card";
+import Card from "@/components/RpguiCard";
 
 const About: FC = () => (
   <div className="p-5 mb-4">
-    <Card>
+    <Card className="w-full h-full">
       <h2>About</h2>
-      <hr  className="golden mb-4"/>
+      <hr className="golden mb-4" />
       <p>
         RPGUI Documentation:
         <a
@@ -13,7 +13,7 @@ const About: FC = () => (
           rel="noreferreer"
           target="_blank"
         >
-           https://github.com/RonenNess/RPGUI/blob/master/README.md
+          https://github.com/RonenNess/RPGUI/blob/master/README.md
         </a>
       </p>
     </Card>

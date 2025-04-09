@@ -9,13 +9,14 @@ type SidebarProps = {
 
 
 
-const NavItem: React.FC<NavItemProps> = ({ icon, title, path }) => (
+const NavItem: React.FC<NavItemProps> = ({ title, path }) => (
   <Link
     to={path}
-    className="flex items-center space-x-3 px-4 py-2 rounded-md rpgui-container framed-grey transition duration-300 ease-in-out"
+    className="flex items-center justify-center space-x-3 px-4 - transition duration-300 ease-in-out"
   >
-    {icon}
-    <span>{title}</span>
+    <button className="rpgui-button  w-full text-2xl flex justify-center">
+      <span> {title}</span>
+    </button>
   </Link>
 );
 

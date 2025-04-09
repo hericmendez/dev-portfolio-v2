@@ -1,6 +1,6 @@
 
 import { FC } from "react";
-import Card from "@/components/Card";
+import Card from "@/components/RpguiCard";
 
 
 const Contact: FC = () => (

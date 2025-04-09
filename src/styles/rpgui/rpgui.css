@@ -64,7 +64,7 @@ inside your html file.
   background-position: center;
   background-size: 100% 100%;
   /* font size */
-  font-size: 1.0em;
+  
   /* default size and display */
   max-width: 100%;
   min-width: 140px;
@@ -86,7 +86,8 @@ inside your html file.
 
 /* golden button stuff */
 .rpgui-button.golden p {
-  display: inline-block; }
+  display: inline-block; 
+padding: 10px;}
 
 /* golden button style */
 .rpgui-button.golden {
@@ -318,7 +319,7 @@ inside your html file.
   border-image-slice: 3 3 3 3;
   border-image-width: 7px;
   border-width: 7px;
-  padding: 12px;
+  padding: 5px;
   /* internal border */
   box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -647,9 +648,7 @@ ul.rpgui-list-imp {
   /* color and border */
   color: white;
   text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
-  font-size: 1.25em;
-  /* center text */
-  text-align: center;
+
   /* padding */
   padding: 0 0 0 0;
   margin: 7px 7px 17px 7px; }
