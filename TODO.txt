@@ -1,0 +1,39 @@
+Geral:
+✅ Navegação na sidebar por setinhas do teclado 
+✅ Criar duas sidebars: modo desktop (fixa) e modo mobile (escondida, retrátil)
+
+
+Home:
+- Painel com CTA "Entre em contato" e "Baixe meu currículo" 
+    >>> Falta funcionalidade
+
+Profile:
+- Definir layout
+- Colocar arte em png
+- Listar experiências
+
+Skills:
+- Revisar descrições
+
+Projects:
+- Listar projetos
+- Redefinir layout
+
+Contact:
+- Definir layout
+- Criar formulário funcional
+- Listar minhas redes sociais
+
+Blog:
+- Projeto à parte (RamenPost). Fazer página "EM CONSTRUÇÃO"
+About:
+- Definir layout
+- Breve descrição do projeto
+- Link do repositório
+- Créditos do autor (no caso, eu)
+
+Download CV:
+- Colocar link para download
+
+Página 404:
+- Colocar referência a Undertale (Toriel blocks the way - Go back home)

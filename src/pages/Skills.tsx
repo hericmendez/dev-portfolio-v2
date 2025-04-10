@@ -6,9 +6,15 @@ import { hardSkills, softSkills } from "@/constants/skills";
 import ProgressBar from "@/components/ProgressBar";
 const Skills: FC = () => {
   return (
-    <div className="flex flex-col text-white">
-      <h2 className="text-4xl text-bold">Habilidades e Talentos</h2>
-      <hr className="golden mb-5" />
+    <div className="px-4 mx-auto">
+      <div className="flex flex-col text-left">
+        <h1 className="!text-4xl font-bold !mb-0 !text-left">
+          Habilidades e Talentos
+        </h1>
+
+        <hr className="golden mb-4" />
+      </div>
+
       <Tabs>
         <Tab label="Hard Skills">
           {hardSkills.map((skill, index) => (

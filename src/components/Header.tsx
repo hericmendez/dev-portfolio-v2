@@ -14,11 +14,7 @@ const Header: React.FC<HeaderProps> = ({ toggleSidebar }) => {
       <h3 className="text-lg font-bold">
         Welcome to my portfolio!
       </h3>
-{/*       <button
-        className="rpgui-button"
-      >
-        Dark Mode
-      </button> */}
+
     </header>
   );
 };

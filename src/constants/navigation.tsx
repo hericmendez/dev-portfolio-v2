@@ -1,6 +1,9 @@
 import About from "@/pages/About";
+import Blog from "@/pages/Blog";
 import Contact from "@/pages/Contact";
 import Home from "@/pages/Home";
+import NotFound from "@/pages/NotFound";
+import Profile from "@/pages/Profile";
 import Projects from "@/pages/Projects";
 import Skills from "@/pages/Skills";
 
@@ -14,21 +17,21 @@ import {
 
 const navigationConfig = [
   {
-    key: "home",
+    id: "",
     title: "Home",
     icon: <GiPlayerBase />,
     path: "/",
     component: <Home />,
   },
   {
-    key: "about",
-    title: "About me",
+    id: "profile",
+    title: "My Profile",
     icon: <GiInfo />,
-    path: "/about",
-    component: <About />,
+    path: "/profile",
+    component: <Profile />,
   },
   {
-    key: "skills",
+    id: "skills",
     title: "Skills",
     icon: <GiSwordman />,
 
@@ -36,18 +39,39 @@ const navigationConfig = [
     component: <Skills />,
   },
   {
-    key: "projects",
+    id: "projects",
     title: "Projects",
     icon: <GiScrollUnfurled />,
     path: "/projects",
     component: <Projects />,
   },
   {
-    key: "contact",
+    id: "contact",
     title: "Contact",
     icon: <GiRotaryPhone />,
     path: "/contact",
     component: <Contact />,
+  },
+  {
+    id: "blog",
+    title: "Blog",
+    icon: <GiRotaryPhone />,
+    path: "/blog",
+    component: <Blog />,
+  },
+  {
+    id: "about",
+    title: "About",
+    icon: <GiRotaryPhone />,
+    path: "/about",
+    component: <About />,
+  },
+  {
+    id: "not_found",
+    title: "404",
+    icon: <GiRotaryPhone />,
+    path: "aaa",
+    component: <NotFound />,
   },
 ];
 
