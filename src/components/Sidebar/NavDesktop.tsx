@@ -31,15 +31,17 @@ const NavDesktop: React.FC = () => {
     <aside
       className={`rpgui-container framed fixed md:relative h-screen pt-5 w-100 p-5 transition-transform duration-300 height-fix md:translate-x-0`}
     >
-      <div className="flex flex-col items-center mb-5 ">
+      <div className="flex flex-col items-center ">
         <img
           src="hmg.jpg"
           alt="Profile"
           className="w-36 h-36  rpgui-container framed-grey p-0"
         />
-        <h4 className="text-gray-300">Héric Mendes</h4>
+        <h2 className="text-2xl !mb-0">Héric Mendes</h2>
+        <p>Front-end Dev</p>
       </div>
-      <nav className="space-y-4">
+      <hr className="golden my-3" />
+      <nav style={{ zoom: "90%" }} className="space-y-4">
         {navItems.map((item) => (
           <NavItem
             key={item.id}
@@ -49,6 +51,9 @@ const NavDesktop: React.FC = () => {
           />
         ))}
       </nav>
+      <p className="absolute bottom-0 !text-slate-200 !text-sm !text-center">
+        Pressione ⬆️ e ⬇️ no teclado para navegar!
+      </p>
     </aside>
   );
 };

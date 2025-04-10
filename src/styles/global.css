@@ -1,8 +1,13 @@
 @import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: url("../assets//img/chrono_bg.webp") no-repeat center center fixed;
   background-size: cover;
-
+  
   @media (prefers-color-scheme: dark) {
     color-scheme: dark;
   }
@@ -10,8 +15,7 @@ body {
 
 .height-fix {
   
-
-  height: calc(100vh);
+  height: 100vh;
 
   @media screen and (min-width: 768px) {
     margin-top: 30px;

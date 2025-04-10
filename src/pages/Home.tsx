@@ -15,8 +15,8 @@ const HomeCard: FC = () => {
 
       <div className="rpgui-container framed-grey !px-10 flex flex-col md:flex-row justify-between mb-4">
         <div className="flex flex-col w-full md:w-1/2 justify-center items-center">
-          <ProgressBar label="Saúde" fill={60} color="red" />
-          <ProgressBar label="Code exp." fill={80} color="blue" />
+          <ProgressBar label="Saúde" fill={80} color="red" />
+          <ProgressBar label="Code exp." fill={85} color="blue" />
           <ProgressBar label="Horas de sono" fill={45} color="green" />
         </div>
         <div className="flex flex-col w-full md:w-1/2 justify-center items-stretch md:ml-10">

@@ -6,7 +6,7 @@ const NotFound: FC = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="rpgui-container framed-grey p-5 mb-4 mt-2 flex flex-col items-center justify-center">
+    <div className="rpgui-container framed-grey p-5 mb-4 mt-10 flex flex-col items-center justify-center">
       <h2 className="!text-4xl !mb-0">ERRO 404</h2>
       <p>Página não encontrada</p>
       <hr className="golden w-full my-5" />
@@ -23,7 +23,7 @@ const NotFound: FC = () => {
           criança.
         </p>
       </Card>
-      <button onClick={() => navigate("/")} className="rpgui-button">
+      <button onClick={() => navigate("/")} className="rpgui-button mb-10 mt-4">
         <span>Voltar para a página inicial</span>
       </button>
     </div>

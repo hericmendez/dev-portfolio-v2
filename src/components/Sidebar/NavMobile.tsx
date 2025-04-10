@@ -17,11 +17,14 @@ const NavMobile: React.FC<NavMobileProps> = ({ isOpen, toggleSidebar }) => {
         isOpen ? "translate-x-0" : "-translate-x-150"
       } md:translate-x-0`}
     >
-              <button onClick={toggleSidebar} className="rpgui-container framed-grey top-0 right-0 !fixed !h-12 !w-12 text-2xl ">
-                <span><GiCancel className="" />
-
-                  </span>
-              </button>
+      <button
+        onClick={toggleSidebar}
+        className="rpgui-container framed-grey top-0 right-0 !fixed !h-12 !w-12 text-2xl "
+      >
+        <span>
+          <GiCancel className="" />
+        </span>
+      </button>
 
       <div className="flex flex-col items-center mb-5 ">
         <img

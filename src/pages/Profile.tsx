@@ -11,27 +11,25 @@ export default function Profile() {
         <hr className="golden mb-4" />
       </div>
 
-             <div className="rpgui-container framed-golden p-4 mb-4">
-          <h1 className="text-3xl font-bold mb-2">Héric Vinícius Mendes</h1>
-          <p className="italic text-yellow-300">
-            Classe: Desenvolvedor Front-end
-          </p>
-          <p className="mt-2 text-sm">
-            Nível 24 • Experiência em React, JavaScript, interfaces e
-            metodologias ágeis.
-          </p>
-        </div>
+      <div className="rpgui-container framed-golden p-4 mb-4">
+        <h1 className="text-3xl font-bold mb-2">Héric Vinícius Mendes</h1>
+        <p className="italic text-yellow-300">
+          Classe: Desenvolvedor Front-end
+        </p>
+        <p className="mt-2 text-sm">
+          Nível 24 • Experiência em React, JavaScript, interfaces e metodologias
+          ágeis.
+        </p>
+      </div>
       <div className="md:w-[60%] p-6 relative z-10">
-   
-
         <div className="rpgui-container framed-grey p-4 mb-4">
           <h2 className="rpgui-heading">HISTÓRIA</h2>
           <p>
             Guerreiro do Front-End com especialidade em React e TypeScript,
-            Nativo da aldeia de Matão, nas terras de São Paulo. Autodidata e sempre em busca de
-            novas aventuras, domina bibliotecas como Material, Ant Design e
-            Tailwind. Já lutou ao lado de guildas como DTEC, Biotrônica e
-            Polarsapiens.
+            Nativo da aldeia de Matão, nas terras de São Paulo. Autodidata e
+            sempre em busca de novas aventuras, domina bibliotecas como
+            Material, Ant Design e Tailwind. Já lutou ao lado de guildas como
+            DTEC, Biotrônica e Polarsapiens.
           </p>
         </div>
 
@@ -68,7 +66,7 @@ export default function Profile() {
         <img
           src={Avatar}
           alt="Avatar RPG"
-          className="fixed  h-[75vh] bottom-[40px] right-[13%]"
+          className="fixed  h-[75vh] bottom-[45px] right-[15%]"
         />
       </div>
     </div>
