@@ -180,15 +180,7 @@ export const hardSkills = [
     description:
       "Força física aliada à técnica. Capaz de curar máquinas com toque preciso.",
   },
-  {
-    name: "Papercraft",
-    class: "Artesanal",
-    level: "6",
-    expLevel: "6500/10000",
-    progressBar: "65",
-    description:
-      "Dom de criar com as mãos. Paciente, preciso e focado fora do digital.",
-  },
+
 ];
 
 export const softSkills = [
@@ -256,3 +248,24 @@ export const softSkills = [
       "Nova linguagem? Ambiente hostil? Me adapto e sobrevivo. Guerreiro de qualquer campo.",
   },
 ];
+
+export const hobbies = [
+  {
+    name: "Papercraft",
+    class: "Artesanal",
+    level: "10",
+    expLevel: "10000/10000",
+    progressBar: "100",
+    description:
+      "Dom de criar com as mãos. Paciente, preciso e focado fora do digital.",
+  },
+  {
+    name: "Videogames",
+    class: "Dungeon Master",
+    level: "9",
+    expLevel: "FFFF/10000",
+    progressBar: "1000",
+    description:
+      "Acho que nem preciso comentar, né?",
+  },
+]

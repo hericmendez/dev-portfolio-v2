@@ -1,8 +1,8 @@
 import { FC } from "react";
-import AppLayout from "@/components/AppLayout";
-import NotFound from "@/pages/NotFound"; // Importando a página 404
+import AppLayout from "@/layout/AppLayout";
+import NotFound from "@/pages/NotFound";
 import { Routes, Route } from "react-router-dom";
-import navItems from "@/constants/navigation";
+import navItems from "./navigationConfig";
 
 const AppRouter: FC = () => {
   return (

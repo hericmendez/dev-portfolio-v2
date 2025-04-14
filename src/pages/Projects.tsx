@@ -23,11 +23,12 @@ const ProjectsPage: React.FC = () => {
             className="rpgui-container framed-golden p-2 flex flex-col min-h-[500px]"
           >
             <h2 className="text-2xl font-bold text-center mb-2">
-              {project.name}
+              {project.title}
             </h2>
+            <hr className="golden mb-2" />
             <img
               src={project.thumbnail}
-              alt={project.name}
+              alt={project.title}
               className="rounded-md object-cover h-[180px] w-full mb-3"
             />
 
@@ -43,7 +44,7 @@ const ProjectsPage: React.FC = () => {
             </div>
 
             <p className="text-sm text-gray-300 flex-grow">
-              {project.description}
+              {project.meta_description}
             </p>
 
             <button

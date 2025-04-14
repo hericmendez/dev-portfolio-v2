@@ -1,8 +1,11 @@
 export type Project = {
-  id: number;
-  name: string;
+  title: string;
   thumbnail: string;
+  status: string;
+  screenshots: string[];
   tags: string[];
-  description: string;
-  link?: string;
+  meta_description: string;
+  full_description: string;
+  demo_link?: string;
+  repository_link?: string;
 };

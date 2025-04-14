@@ -2,10 +2,10 @@ import About from "@/pages/About";
 import Blog from "@/pages/Blog";
 import Contact from "@/pages/Contact";
 import Home from "@/pages/Home";
-import NotFound from "@/pages/NotFound";
 import Profile from "@/pages/Profile";
 import Projects from "@/pages/Projects";
 import Skills from "@/pages/Skills";
+
 
 import {
   GiPlayerBase,
@@ -66,13 +66,7 @@ const navigationConfig = [
     path: "/about",
     component: <About />,
   },
-  {
-    id: "not_found",
-    title: "404",
-    icon: <GiRotaryPhone />,
-    path: "aaa",
-    component: <NotFound />,
-  },
+
 ];
 
 export default navigationConfig;

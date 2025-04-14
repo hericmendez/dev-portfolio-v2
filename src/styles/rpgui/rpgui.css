@@ -218,7 +218,7 @@ padding: 10px;}
   /* remove outline effect for input elements etc */
   outline: none;
   /* prevent dragging */
-  user-drag: none;
+
   -webkit-user-drag: none;
   /* prevent text selecting */
   -webkit-touch-callout: none;
@@ -236,8 +236,7 @@ padding: 10px;}
   image-rendering: -o-crisp-edges;
   image-rendering: pixelated;
   /* default font */
-  font-family: "Ubuntu Mono", monospace;
-
+  font-family: "JetBrains Mono", monospace;
 }
 /**
 * customized divs (containers) and framed objects (background and frame image).
@@ -685,23 +684,31 @@ ul.rpgui-list-imp {
 .rpgui-content p {
   /* color and border */
   color: white;
-  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+  
   font-size: 1.0em;
   line-height: 22px; }
+
+.rpgui-content strong {
+  text-shadow:  -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black; 
+  
+}
+
+.rpgui-content .press-start-button {
+  font-family: "Press Start 2P", system-ui;
+}
 
 /* default span */
 .rpgui-content span {
   /* color and border */
   color: white;
-  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
-  font-size: 1.0em;
+
   line-height: 22px; }
 
 /* default gui link */
 .rpgui-content a {
   /* color and border */
   color: yellow;
-  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+
   font-size: 1.0em;
   line-height: 22px;
   text-decoration: none; }
@@ -724,7 +731,7 @@ ul.rpgui-list-imp {
   /* color and border */
   margin-left: 20px;
   color: white;
-  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+
   font-size: 1.0em;
   line-height: 22px; }
 

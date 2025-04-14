@@ -1,14 +1,14 @@
 
 
-import navItems from "@/constants/navigation";
+import navItems from "@/routes/navigationConfig";
 import NavItem from "./NavItem";
 import { GiCancel } from "react-icons/gi";
+import Revi from "@/assets/images/avatar/revi_machinga.png";
 
 type NavMobileProps = {
   isOpen: boolean;
   toggleSidebar: () => void;
 };
-
 
 const NavMobile: React.FC<NavMobileProps> = ({ isOpen, toggleSidebar }) => {
   return (
@@ -28,7 +28,7 @@ const NavMobile: React.FC<NavMobileProps> = ({ isOpen, toggleSidebar }) => {
 
       <div className="flex flex-col items-center mb-5 ">
         <img
-          src="hmg.jpg"
+          src={Revi}
           alt="Profile"
           className="w-36 h-36  rpgui-container framed-grey p-0"
         />

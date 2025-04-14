@@ -1,6 +1,6 @@
 export default function AboutPage() {
   return (
-    <div className="px-4 mx-auto text-white font-mono">
+    <div className="px-4 mx-auto">
       <div className="flex flex-col text-left">
         <h1 className="!text-4xl font-bold !mb-0 !text-left">
           Sobre este projeto

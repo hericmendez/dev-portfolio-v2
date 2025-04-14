@@ -15,7 +15,7 @@ const CTABox = () => {
       <div>
         <p className="!text-xl !mb-2"> Curtiu esse portfólio?</p>
         <p className="text-sm text-white mb-6 ">
-          {/*         🗡️ <span className="text-yellow-300 italic">"Você viu o que eu posso fazer."</span><br /> */}
+        🗡️ <span className="text-yellow-300 italic">"Você viu o que eu posso fazer."</span><br /> 
           Então <span className="text-green-400">entre em contato</span> e
           agende uma quest comigo!
           <br />

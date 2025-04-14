@@ -2,7 +2,7 @@
 import { FC } from "react";
 import RpguiCard from "@/components/RpguiCard";
 import Tabs, { Tab } from "@/components/PageTabs";
-import { hardSkills, softSkills } from "@/constants/skills";
+import { hardSkills, hobbies, softSkills } from "@/constants/skills";
 import ProgressBar from "@/components/ProgressBar";
 const Skills: FC = () => {
   return (
@@ -42,10 +42,30 @@ const Skills: FC = () => {
               variant="framed-golden"
               className="flex flex-row"
             >
-              <div className="w-[100%] flex flex-col justify-center">
-                <h2 className="text-2xl">{skill.name}</h2>
+              <div className=" flex flex-col justify-center">
+                <h2 className="text-3xl text-center !mb-0 ">{skill.name}</h2>
+                <hr className="golden" />
                 <p>{skill.description}</p>
-                <ProgressBar label=" " fill={skill.progressBar} />
+                <ProgressBar label=" " color="green" fill={skill.progressBar} />
+                <p>
+                  XP: {skill.expLevel} Classe: {skill.class}
+                </p>
+              </div>
+            </RpguiCard>
+          ))}
+        </Tab>
+        <Tab label="Hobbies">
+          {hobbies.map((skill, index) => (
+            <RpguiCard
+              key={index}
+              variant="framed-golden"
+              className="flex flex-row"
+            >
+              <div className=" flex flex-col justify-center">
+                <h2 className="text-3xl text-center !mb-0 ">{skill.name}</h2>
+                <hr className="golden w-full" />
+                <p>{skill.description}</p>
+                <ProgressBar label=" " color="blue" fill={skill.progressBar} />
                 <p>
                   XP: {skill.expLevel} Classe: {skill.class}
                 </p>

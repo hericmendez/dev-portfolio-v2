@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import NavDesktop from "./Sidebar/NavDesktop";
+import NavDesktop from "../components/Sidebar/NavDesktop";
 
-import Content from "./Content";
+import Content from "../components/Content";
 import { useWindowSize } from "react-use";
 
 import { Outlet } from "react-router-dom";
 
-import NavMobile from "./Sidebar/NavMobile";
+import NavMobile from "../components/Sidebar/NavMobile";
 import { FaBars } from "react-icons/fa";
 
 const AppLayout: React.FC = () => {

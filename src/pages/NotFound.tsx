@@ -1,6 +1,6 @@
 import { FC } from "react";
 import Card from "@/components/RpguiCard";
-import Toriel from "@/assets/img/toriel.png";
+import Toriel from "@/assets/images/toriel.png";
 import { useNavigate } from "react-router-dom";
 const NotFound: FC = () => {
   const navigate = useNavigate();

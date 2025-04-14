@@ -1,4 +1,4 @@
-import Gandalf from '@/assets/img/gandalf_pixel.png' 
+import Gandalf from '@/assets/images/gandalf_pixel.png' 
 
 
 export default function UnderConstruction() {

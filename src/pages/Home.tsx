@@ -1,8 +1,48 @@
 import CTABox from "@/components/CTAbox";
 import ProgressBar from "@/components/ProgressBar";
 import { FC } from "react";
+import HTML from "@/assets/images/skills/skill_html.png";
+import CSS from "@/assets/images/skills/skill_css.png";
+import JS from "@/assets/images/skills/skill_js.png";
+import REACT from "@/assets/images/skills/skill_react.png";
+import REACTNATIVE from "@/assets/images/skills/skill_react_native.png";
+import NODE from "@/assets/images/skills/skill_node.png";
+import Tooltip from "@/components/Tooltip";
 
 const HomeCard: FC = () => {
+  const mainSkills = [
+    {
+      name: "HTML",
+      xp: 100,
+      image: HTML,
+    },
+    {
+      name: "CSS",
+      xp: 100,
+      image: CSS,
+    },
+    {
+      name: "Javascript",
+      xp: 100,
+      image: JS,
+    },
+    {
+      name: "React",
+      xp: 100,
+      image: REACT,
+    },
+    {
+      name: "React Native",
+      xp: 100,
+      image: REACTNATIVE,
+    },
+    {
+      name: "NodeJS",
+      xp: 100,
+      image: NODE,
+    },
+  ];
+
   return (
     <div className="px-5 text-white flex flex-col justify-center">
       <div className="flex flex-col text-left">
@@ -22,12 +62,21 @@ const HomeCard: FC = () => {
         <div className="flex flex-col w-full md:w-1/2 justify-center items-stretch md:ml-10">
           <h2 className="!text-xl text-left font-bold">Skills Principais</h2>
           <div className="grid grid-cols-4 gap-2 mb-4">
-            {Array.from({ length: 8 }).map((_, index) => (
+            {mainSkills.map((item, index) => (
               <div
                 key={index}
-                className="rpgui-container framed-golden-2 flex items-center justify-center h-20 w-20"
+                className="rpgui-container framed-golden flex items-center justify-center h-24 w-24 !p-0"
               >
-                <span className="text-sm text-gray-400">?</span>
+                <Tooltip
+                  content={
+                    <div className="rpgui-container framed-grey p-2 w-50">
+                      <span>{item.name}</span>
+                      <ProgressBar fill={item.xp} label="xp:" />
+                    </div>
+                  }
+                >
+                  <img className="" src={item.image} alt={item.name} />
+                </Tooltip>
               </div>
             ))}
           </div>
@@ -51,12 +100,13 @@ const HomeCard: FC = () => {
 
       <div>
         <ul className="text-xl space-y-1 list-none mb-8">
-          <li className="mb-2">🏢 Meu trabalho atual (nenhum, no caso).</li>
-          <li className="mb-2">🎓 Minha formação.</li>
-          <li className="mb-2">🇬🇧 Nível de inglês.</li>
-          <li className="mb-2">📜 Algum curso que eu fiz.</li>
+          <li className="mb-2">🏢 Front end Freelancer Dev (Web/Mobile)</li>
           <li className="mb-2">
-            🗡️ Aqui vou colocar minha área e especialização.
+            🎓 Cursando Análise e Desenvolvimento de Sistemas
+          </li>
+          <li className="mb-2">🇬🇧 Inglês Fluente</li>
+          <li className="mb-2">
+            📜 Atualmente explorando a linguagem Python e aplicações em IA
           </li>
         </ul>
       </div>

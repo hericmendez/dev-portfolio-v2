@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import UnderConstruction from "./UnderConstruction";
+import UnderConstruction from "../components/UnderConstruction";
 const Blog: FC = () => {
   return (
     <div className="px-4 mx-auto">
