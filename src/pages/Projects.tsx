@@ -12,9 +12,7 @@ const ProjectsPage: React.FC = () => {
         <h1 className="!text-4xl font-bold !mb-0 !text-left">
           Quests Concluídas
         </h1>
-        <h2>
-          As batalhas que lutei, os chefões que derrotei.
-        </h2>
+        <h2>As batalhas que lutei, os chefões que derrotei.</h2>
         <hr className="golden mb-4" />
       </div>
 
@@ -22,7 +20,7 @@ const ProjectsPage: React.FC = () => {
         {projects.map((project) => (
           <div
             key={project.id}
-            className="rpgui-container framed-golden p-2 flex flex-col min-h-[500px]"
+            className="rpgui-container framed-golden p-2 flex flex-col flex-wrap overflow-y-scroll min-h-[500px]"
           >
             <h2 className="text-2xl font-bold text-center mb-2">
               {project.title}

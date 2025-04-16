@@ -6,7 +6,7 @@ import NavItem from "./NavItem";
 const NavDesktop: React.FC = () => {
   return (
     <aside
-      className={`rpgui-container framed fixed md:relative h-screen pt-5 w-100 p-5 transition-transform duration-300 height-fix md:translate-x-0`}
+      className={`rpgui-container framed fixed md:relative h-screen pt-5 w-100 p-5 transition-transform duration-300 height-fix md:translate-x-0 overflow-y-auto`}
     >
       <div className="flex flex-col items-center ">
         <img
@@ -18,7 +18,7 @@ const NavDesktop: React.FC = () => {
         <p>Front-end Dev</p>
       </div>
       <hr className="golden my-3" />
-      <nav style={{ zoom: "90%" }} className="space-y-4">
+      <nav style={{ zoom: "80%" }} className="space-y-4">
         {navItems.map((item) => (
           <NavItem
             key={item.id}

@@ -1,0 +1,26 @@
+🚀 Portfólio novo no ar!
+🔗 https://dev-portfolio-v2-omega.vercel.app
+
+Enfim, depois de semanas (meses?) de desenvolvimento, finalmente derrotei esse boss! kkkkkkkkk
+
+Esse projeto é uma releitura do meu portfólio de 2023 — também com temática de videogame. A ideia original sempre teve um lugar especial pra mim, mas senti que era hora de revisitar o conceito e mostrar o quanto evoluí desde então, tanto tecnicamente quanto em maturidade de design e visão de produto.
+
+E olha... não foi fácil chegar nesse design. Foram semanas estudando menus de diversos jogos, analisando layouts conhecidos, fuçando no github procurando templates, lendo documentações de libs... Até cogitei fazer algo totalmente novo e descartar o layout antigo. Mas a ideia original era boa demais pra se jogar fora. Então concluí: por que não fazer um remake?
+
+O conceito foi preservado, mas tudo foi repensado do zero: estrutura, responsividade, experiência de navegação e identidade visual. Mudei a tipografia (bem mais legível agora), mudei a paleta de cores, refiz o layout em uma escala 4:3  deixar os elementos menos esticados na tela, além de dar aquele aspecto de tela de tubo. Agora dá pra usar as setinhas pra navegar entre os menus! E se vc fuçar bastante, talvez até encontre algum easter egg escondido (me manda uma mensagem se encontrar!).
+
+Usei React + Vite, Tailwind CSS e a biblioteca rpgui pra trazer aquele charme de jogos clássicos, com uma identidade visual que mistura nostalgia com uma UI moderna e bem resolvida, com cada elemento em seu devido lugar, respeitando espaçamento e hierarquia.
+
+A ideia foi ir além de uma simples vitrine de projetos. Quis criar uma experiência que refletisse meu estilo e mostrasse do que sou capaz — tanto no código quanto no design.
+
+👾 Curte ver evolução de projetos?
+Também deixei disponível a versão original de 2023 — pra quem quiser comparar e acompanhar de perto como minha abordagem em design e código amadureceu desde então.
+
+https://rpg-portfolio-react-hericmendez.vercel.app/
+
+💡 Se você curte interfaces criativas e fora do comum, dá uma olhada!
+Tô sempre aberto a trocar ideia e conhecer novas oportunidades. 🚀
+
+
+
+#reactjs #vitejs #tailwindcss #RPGUI #frontend #portfolio #webdev #uiux #retrogaming

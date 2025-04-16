@@ -38,25 +38,24 @@ const BackToTopButton: React.FC = () => {
     <span
       onClick={scrollContentToTop}
       style={{
-        position: 'fixed',
-        bottom: '32px',
-        right: '32px',
-
+        position: "fixed",
+        bottom: "5px",
+        right: "5px",
 
         zIndex: 999,
-        opacity: 0.7,
-        textAlign: 'center',
-        color: 'white',
-        display: showButton ? 'flex' : 'none',
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderRadius: '6px',
-        cursor: 'pointer',
-        transition: 'opacity 0.4s',
+        opacity: 0.9,
+        textAlign: "center",
+        color: "white",
+        display: showButton ? "flex" : "none",
+        justifyContent: "center",
+        alignItems: "center",
+        borderRadius: "6px",
+        cursor: "pointer",
+        transition: "opacity 0.7s",
       }}
-      className="rpgui-button"
+      className="rpgui-container framed-golden hover:opacity-100 !p-1"
     >
-      VOLTAR AO TOPO
+      ⬆️
     </span>
   );
 };

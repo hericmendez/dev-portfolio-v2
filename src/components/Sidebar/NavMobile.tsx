@@ -13,7 +13,7 @@ type NavMobileProps = {
 const NavMobile: React.FC<NavMobileProps> = ({ isOpen, toggleSidebar }) => {
   return (
     <aside
-      className={`rpgui-container framed-golden fixed md:relative h-screen pt-5 w-[75vw] p-5 transition-transform duration-300 z-20 height-fix ${
+      className={`rpgui-container framed-golden !fixed md:relative pt-5 w-[75vw] p-5 transition-transform duration-300 z-20 height-fix  ${
         isOpen ? "translate-x-0" : "-translate-x-150"
       } md:translate-x-0`}
     >
@@ -25,25 +25,26 @@ const NavMobile: React.FC<NavMobileProps> = ({ isOpen, toggleSidebar }) => {
           <GiCancel className="" />
         </span>
       </button>
-
-      <div className="flex flex-col items-center mb-5 ">
-        <img
-          src={Revi}
-          alt="Profile"
-          className="w-36 h-36  rpgui-container framed-grey p-0"
-        />
-        <h4 className="text-gray-300">Héric Mendes</h4>
-      </div>
-      <nav onClick={toggleSidebar} className="space-y-4">
-        {navItems.map((item) => (
-          <NavItem
-            key={item.id}
-            id={item.id}
-            path={item.path}
-            title={item.title}
+      <div className="h-full overflow-y-scroll z-30">
+        <div className="flex flex-col items-center mb-5 ">
+          <img
+            src={Revi}
+            alt="Profile"
+            className="w-36 h-36  rpgui-container framed-grey p-0"
           />
-        ))}
-      </nav>
+          <h4 className="text-gray-300">Héric Mendes</h4>
+        </div>
+        <nav style={{ zoom: "80%" }} onClick={toggleSidebar} className="">
+          {navItems.map((item) => (
+            <NavItem
+              key={item.id}
+              id={item.id}
+              path={item.path}
+              title={item.title}
+            />
+          ))}
+        </nav>
+      </div>
     </aside>
   );
 };

@@ -27,9 +27,9 @@ const AppLayout: React.FC = () => {
             onClick={toggleSidebar}
             className=" !fixed flex justify-center align-center rpgui-container framed-golden h-12 w-12 opacity-75 hover:opacity-100 top-5 left-5 z-[999] md:hidden"
           >
-            <span>
+            <span className="flex justify-center items-center !text-amber-300">
               {" "}
-              <FaBars />{" "}
+              <FaBars />
             </span>
           </div>
 

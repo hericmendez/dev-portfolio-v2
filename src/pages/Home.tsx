@@ -8,16 +8,14 @@ import { Link } from "react-router";
 
 const HomePage: FC = () => {
   return (
-    <div className="px-5 text-white flex flex-col justify-center">
+    <div className="px-4 mx-auto">
       <div className="flex flex-col text-left">
-        <h1 className="!text-4xl font-bold !mb-0 !text-left">Héric Mendes</h1>
-        <h2 className="r text-md !mb-0">
-          Level: 33 — Classe: Front-end Developer
-        </h2>
+        <h1 className="!text-4xl font-bold !mb-0 !text-left">Heric Mendes</h1>
+        <h2>Level 33 Front-end Developer</h2>
         <hr className="golden mb-4" />
       </div>
 
-      <div className="rpgui-container framed-grey !px-10 flex flex-col md:flex-row justify-between mb-4">
+      <div className="rpgui-container framed-grey !md:px-10 flex flex-col md:flex-row justify-between mb-4">
         <div className="flex flex-col w-full md:w-1/2 justify-center items-center space-y-5">
           <ProgressBar label="Saúde" fill={80} color="red" />
           <ProgressBar label="Code exp." fill={85} color="blue" />
@@ -25,13 +23,13 @@ const HomePage: FC = () => {
         </div>
         <div className="flex flex-col w-full md:w-1/2 justify-center items-center md:ml-10">
           <h2 className="!text-xl text-left font-bold">Skills Principais</h2>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 mb-4">
+          <div className="grid grid-cols-3 lg:grid-cols-4 gap-2 mb-4">
             {hardSkills.map(
               (item, index) =>
                 item.icon && (
                   <div
                     key={index}
-                    className="rpgui-container framed-grey flex items-center justify-center h-24 w-24 "
+                    className="rpgui-container framed-grey flex items-center justify-center h-20 w-20 "
                   >
                     <Tooltip
                       content={
@@ -46,9 +44,9 @@ const HomePage: FC = () => {
                   </div>
                 )
             )}
-            <div className="rpgui-container framed-grey flex items-center justify-center text-4xl h-24 w-24 !p-0">
+            <div className="rpgui-container framed-grey flex items-center justify-center text-4xl h-20 w-20 !p-0">
               <Link to="/skills">
-                <strong>+10</strong>
+                <strong>+13</strong>
               </Link>
             </div>
           </div>

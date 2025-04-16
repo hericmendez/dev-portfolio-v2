@@ -34,13 +34,11 @@ const ContactPage = ()=> {
   };
 
   return (
-    <div className="px-5 text-white flex flex-col justify-center">
+    <div className="px-0 md:px-4 mx-auto">
       <div className="flex flex-col text-left">
         <h1 className="!text-4xl font-bold !mb-0 !text-left">Contato</h1>
-        <h2>
-          Ver este portfólio inspirado em games retrô te enche de determinação.
-        </h2>
-        <hr className="golden mb-0" />
+        <h2>Ver este portfólio retrô te enche de determinação.</h2>
+        <hr className="golden mb-4" />
       </div>
 
       <section className="rpgui-container framed-gresy p-5 mb-4">
@@ -54,7 +52,7 @@ const ContactPage = ()=> {
 
         <form
           onSubmit={handleSubmit}
-          className="rpgui-container framed-golden space-y-4 w-full flex flex-col items-center !p-10"
+          className="rpgui-container framed-golden space-y-4 w-full flex flex-col items-center md:!p-10 "
         >
           <div className="rpgui-container framed-grey w-full">
             <input
@@ -84,11 +82,16 @@ const ContactPage = ()=> {
               placeholder="Sua mensagem"
               value={formData.message}
               onChange={handleChange}
-              className="rpgui-textarea w-full h-32"
+              rows={50}
+              style={{ height: "15em" }} // Ajuste o valor conforme necessário
+              className="rpgui-textarea w-full"
             />
           </div>
 
-          <button type="submit" className="rpgui-button  !text-2xl w-[50%]">
+          <button
+            type="submit"
+            className="rpgui-button  !text-2xl w-[100%] md:w-[50%]"
+          >
             <span>Enviar Mensagem</span>
           </button>
         </form>

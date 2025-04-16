@@ -16,7 +16,7 @@ const NavItem: React.FC<NavItemProps> = ({ title, path, id }) => {
       className="flex items-center justify-center space-x-3 px-4 font-black transition duration-300 ease-in-out "
     >
       <button
-        className={`rpgui-button !py-0 w-full text-2xl flex justify-center ${
+        className={`rpgui-button !py-0 w-full  text-lg md:text-2xl flex justify-center !h-[50px] ${
           id === currentPath ? "down" : ""
         }`}
       >

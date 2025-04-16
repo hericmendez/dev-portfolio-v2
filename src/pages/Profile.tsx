@@ -2,13 +2,10 @@ import Avatar from "@/assets/images/avatar/eu_ghibli.gif";
 
 const ProfilePage = () => {
   return (
-    <div className="px-4 mx-auto max-w-7xl">
-      {/* Título */}
+    <div className="px-4 mx-auto">
       <div className="flex flex-col text-left">
         <h1 className="!text-4xl font-bold !mb-0 !text-left">Meu perfil</h1>
-        <p className="text-md text-gray-300 p-2">
-          Um pouco sobre mim e minha jornada...
-        </p>
+        <h2>Um pouco sobre mim e minha jornada...</h2>
         <hr className="golden mb-4" />
       </div>
 
@@ -168,7 +165,7 @@ const ProfilePage = () => {
           <img
             src={Avatar}
             alt="Avatar RPG"
-            className="fixed h-[85vh] bottom-12 lg:right-[10%] xl:right-[12%] object-cover"
+            className="fixed h-[85vh] bottom-13 lg:right-[10%] xl:right-[12%] object-cover"
           />
         </div>
       </div>
