@@ -4,9 +4,10 @@ Bem-vindo ao meu portfólio interativo! Este projeto é uma fusão entre desenvo
 
 ---
 
-## Live Demo
-Acesse a versão publicada do projeto aqui: [a]()
+## 🔗 Live Demo
+Acesse a versão publicada do projeto aqui: [https://dev-portfolio-v2-omega.vercel.app/](https://dev-portfolio-v2-omega.vercel.app/)
 
+---
 
 ## 💭 Objetivo
 
