@@ -25,7 +25,7 @@ const AppLayout: React.FC = () => {
         <Content>
           <div
             onClick={toggleSidebar}
-            className=" !fixed rpgui-container framed-grey h-12 w-12 opacity-75 hover:opacity-100 top-5 left-5 z-[999] md:hidden"
+            className=" !fixed flex justify-center align-center rpgui-container framed-golden h-12 w-12 opacity-75 hover:opacity-100 top-5 left-5 z-[999] md:hidden"
           >
             <span>
               {" "}

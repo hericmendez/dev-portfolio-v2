@@ -12,7 +12,9 @@ const ProjectsPage: React.FC = () => {
         <h1 className="!text-4xl font-bold !mb-0 !text-left">
           Quests Concluídas
         </h1>
-
+        <h2>
+          As batalhas que lutei, os chefões que derrotei.
+        </h2>
         <hr className="golden mb-4" />
       </div>
 
@@ -26,11 +28,13 @@ const ProjectsPage: React.FC = () => {
               {project.title}
             </h2>
             <hr className="golden mb-2" />
-            <img
-              src={project.thumbnail}
-              alt={project.title}
-              className="rounded-md object-cover h-[180px] w-full mb-3"
-            />
+            <div className="rpgui-container framed-grey !p-0">
+              <img
+                src={project.thumbnail}
+                alt={project.title}
+                className="rounded-md object-cover h-[180px] w-full p-1"
+              />
+            </div>
 
             <div className="flex flex-wrap gap-2 mb-2 justify-start">
               {project.tags.map((tag, i) => (

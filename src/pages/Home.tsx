@@ -1,48 +1,12 @@
 import CTABox from "@/components/CTAbox";
 import ProgressBar from "@/components/ProgressBar";
 import { FC } from "react";
-import HTML from "@/assets/images/skills/skill_html.png";
-import CSS from "@/assets/images/skills/skill_css.png";
-import JS from "@/assets/images/skills/skill_js.png";
-import REACT from "@/assets/images/skills/skill_react.png";
-import REACTNATIVE from "@/assets/images/skills/skill_react_native.png";
-import NODE from "@/assets/images/skills/skill_node.png";
+import { hardSkills } from "@/constants/skills";
+console.log("hardSkills ==> ", hardSkills.length);
 import Tooltip from "@/components/Tooltip";
+import { Link } from "react-router";
 
-const HomeCard: FC = () => {
-  const mainSkills = [
-    {
-      name: "HTML",
-      xp: 100,
-      image: HTML,
-    },
-    {
-      name: "CSS",
-      xp: 100,
-      image: CSS,
-    },
-    {
-      name: "Javascript",
-      xp: 100,
-      image: JS,
-    },
-    {
-      name: "React",
-      xp: 100,
-      image: REACT,
-    },
-    {
-      name: "React Native",
-      xp: 100,
-      image: REACTNATIVE,
-    },
-    {
-      name: "NodeJS",
-      xp: 100,
-      image: NODE,
-    },
-  ];
-
+const HomePage: FC = () => {
   return (
     <div className="px-5 text-white flex flex-col justify-center">
       <div className="flex flex-col text-left">
@@ -54,36 +18,44 @@ const HomeCard: FC = () => {
       </div>
 
       <div className="rpgui-container framed-grey !px-10 flex flex-col md:flex-row justify-between mb-4">
-        <div className="flex flex-col w-full md:w-1/2 justify-center items-center">
+        <div className="flex flex-col w-full md:w-1/2 justify-center items-center space-y-5">
           <ProgressBar label="Saúde" fill={80} color="red" />
           <ProgressBar label="Code exp." fill={85} color="blue" />
           <ProgressBar label="Horas de sono" fill={45} color="green" />
         </div>
-        <div className="flex flex-col w-full md:w-1/2 justify-center items-stretch md:ml-10">
+        <div className="flex flex-col w-full md:w-1/2 justify-center items-center md:ml-10">
           <h2 className="!text-xl text-left font-bold">Skills Principais</h2>
-          <div className="grid grid-cols-4 gap-2 mb-4">
-            {mainSkills.map((item, index) => (
-              <div
-                key={index}
-                className="rpgui-container framed-golden flex items-center justify-center h-24 w-24 !p-0"
-              >
-                <Tooltip
-                  content={
-                    <div className="rpgui-container framed-grey p-2 w-50">
-                      <span>{item.name}</span>
-                      <ProgressBar fill={item.xp} label="xp:" />
-                    </div>
-                  }
-                >
-                  <img className="" src={item.image} alt={item.name} />
-                </Tooltip>
-              </div>
-            ))}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 mb-4">
+            {hardSkills.map(
+              (item, index) =>
+                item.icon && (
+                  <div
+                    key={index}
+                    className="rpgui-container framed-grey flex items-center justify-center h-24 w-24 "
+                  >
+                    <Tooltip
+                      content={
+                        <div className="rpgui-container framed-golden-2 p-2 min-w-50">
+                          <strong className="text-2xl">{item.name}</strong>
+                          <ProgressBar fill={item.progressBar} label="xp:" />
+                        </div>
+                      }
+                    >
+                      <img className="" src={item.icon} alt={item.name} />
+                    </Tooltip>
+                  </div>
+                )
+            )}
+            <div className="rpgui-container framed-grey flex items-center justify-center text-4xl h-24 w-24 !p-0">
+              <Link to="/skills">
+                <strong>+10</strong>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
 
-      <hr className="golden mb- mt-0" />
+      <hr className="golden mb-5 mt-2" />
 
       <div className="text-xl leading-relaxed text-justify mb-5">
         <p>
@@ -116,4 +88,4 @@ const HomeCard: FC = () => {
   );
 };
 
-export default HomeCard;
+export default HomePage;

@@ -1,12 +1,16 @@
-// Contact.tsx
 import { useState } from "react";
+import { sendEmail } from "@/utils/emailjs";
+import icons from "@/assets/images/icons";
 
-export default function Contact() {
+const { facebook, github, gmail, linkedin, steam, whatsapp } = icons;
+
+const ContactPage = ()=> {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
   });
+  const [status, setStatus] = useState<string>("");
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -14,10 +18,19 @@ export default function Contact() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Futuro: enviar via emailjs ou back-end
-    alert("Mensagem enviada com sucesso!");
+    setStatus("Enviando...");
+
+    const form = e.target as HTMLFormElement;
+
+    try {
+      await sendEmail(form);
+      setStatus("Mensagem enviada com sucesso!");
+      setFormData({ name: "", email: "", message: "" }); // Limpar formulário após sucesso
+    } catch (error) {
+      setStatus(`Ocorreu um erro ao enviar sua mensagem: ${error}`);
+    }
   };
 
   return (
@@ -80,41 +93,77 @@ export default function Contact() {
           </button>
         </form>
 
+        {status && <p className="mt-4 text-center text-xl">{status}</p>}
+
         <div className="mt-8">
           <h2 className="text-xl mb-2">
             📡 Você consegue me encontrar nessas tavernas (vulgo redes sociais):
           </h2>
-          <div className="flex space-x-4">
+          <div className="flex space-x-4 ml-5">
             <a
-              href="https://github.com/seuusuario"
+              href="https://github.com/hericmendez"
               target="_blank"
-              className="rpgui-icon sword"
+              rel="noopener noreferrer"
+              className="w-20 h-20"
               title="GitHub"
-            />
+            >
+              <img src={github} alt="github icon" />
+            </a>
             <a
-              href="https://linkedin.com/in/seuusuario"
+              href="https://www.linkedin.com/in/hericmendes/"
               target="_blank"
-              className="rpgui-icon shield"
+              rel="noopener noreferrer"
               title="LinkedIn"
-            />
+              className="w-20 h-20"
+            >
+              {" "}
+              <img src={linkedin} alt="linkedin icon" />
+            </a>
             <a
-              href="mailto:voce@email.com"
-              className="rpgui-icon potion-red"
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=heric.mendez00@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-20 h-20"
               title="Email"
-            />
+            >
+              {" "}
+              <img src={gmail} alt="gmail icon" />
+            </a>
             <a
-              href="mailto:voce@email.com"
-              className="rpgui-icon potion-blue"
-              title="Email"
-            />
+              href="https://api.whatsapp.com/send?phone=5516993868494"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-20 h-20"
+              title="Whatsapp"
+            >
+              {" "}
+              <img src={whatsapp} alt="gmail icon" />
+            </a>
             <a
-              href="mailto:voce@email.com"
-              className="rpgui-icon potion-green"
-              title="Email"
-            />
+              href="https://www.facebook.com/heric.mendes/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-20 h-20"
+              title="Facebook"
+            >
+              {" "}
+              <img src={facebook} alt="facebook icon" />
+            </a>
+            <a
+              href="https://steamcommunity.com/id/revimaxinga/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-20 h-20"
+              title="Steam"
+            >
+              {" "}
+              <img src={steam} alt="steam icon" />
+            </a>
           </div>
         </div>
       </section>
     </div>
   );
 }
+
+export default ContactPage;

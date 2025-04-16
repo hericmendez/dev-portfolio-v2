@@ -1,11 +1,14 @@
 import { BrowserRouter } from "react-router-dom";
 import AppRouter from "./routes/AppRouter";
 import BackToTopButton from "./components/BackToTopButton";
-import { useKonamiCode } from "@/hooks/useSecretCode"; // ajuste o path
+import Konami from "react-konami-code";
 
-function App() {
-  const secretUnlocked = useKonamiCode();
-  console.log("secretUnlocked ==> ", secretUnlocked);
+const App=()=> {
+
+  const easterEgg = () => {
+    alert("Hey, you typed the Konami Code!");
+  };
+
   return (
     <>
       <div className="rpgui-content">
@@ -14,6 +17,9 @@ function App() {
           <BackToTopButton />
         </BrowserRouter>
       </div>
+      <Konami action={easterEgg}>
+        {"Hey, I'm an Easter Egg! Look at me!"}
+      </Konami>
     </>
   );
 }

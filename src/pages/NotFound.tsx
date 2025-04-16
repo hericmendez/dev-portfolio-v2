@@ -2,7 +2,7 @@ import { FC } from "react";
 import Card from "@/components/RpguiCard";
 import Toriel from "@/assets/images/toriel.png";
 import { useNavigate } from "react-router-dom";
-const NotFound: FC = () => {
+const NotFoundPage: FC = () => {
   const navigate = useNavigate();
 
   return (
@@ -30,4 +30,4 @@ const NotFound: FC = () => {
   );
 };
 
-export default NotFound;
+export default NotFoundPage;

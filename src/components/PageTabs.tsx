@@ -21,14 +21,14 @@ const Tabs: React.FC<TabsProps> = ({ children }) => {
   return (
 
       <div >
-        <div className="flex flex-row justify-start items-center mb-4 gap-4">
+        <div className="flex flex-col md:flex-row justify-start items-center mb-4 gap-4">
           {children.map((tab) => (
             <button
               key={tab.props.label}
-              className={"rpgui-button golden text-2xl mx-5 " + (activeTab === tab.props.label ? "down" : "")}
+              className={"rpgui-button w-[300px] !md:h-[80px] golden text-2xl mx-5 flex justify-center items-center " + (activeTab === tab.props.label ? "down" : "")}
               onClick={() => setActiveTab(tab.props.label)}
             >
-             <p> {tab.props.label}</p>
+           <strong> <p> {tab.props.label}</p></strong> 
             </button>
           ))}
         </div>

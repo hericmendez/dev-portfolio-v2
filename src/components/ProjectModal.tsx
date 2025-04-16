@@ -11,12 +11,6 @@ interface ProjectModalProps {
 const ProjectModal: React.FC<ProjectModalProps> = ({ project, setProject }) => {
   if (!project) return null;
 
-  const carouselImages = [
-    "https://placehold.co/600x400/FFFFFF/000000",
-    "https://placehold.co/600x400/333333/000000",
-    "https://placehold.co/600x400/666666/000000",
-    "https://placehold.co/600x400/999999/000000",
-  ];
 
   return (
     <div
@@ -38,15 +32,14 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, setProject }) => {
             interval={4000}
             className="carousel-wrapper"
           >
-            {carouselImages.map((src, index) => (
-              <div key={index}>
+            {project.screenshots.map((src, index) => (
+              <div key={index} className="mb-5">
                 <img
                   src={src}
                   alt={`Slide ${index + 1}`}
                   style={{
                     all: "unset",
                     width: "100%",
-                    height: "180px",
                     objectFit: "cover",
                     display: "block",
                     borderRadius: "0.375rem",

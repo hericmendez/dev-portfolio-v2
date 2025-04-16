@@ -8,7 +8,9 @@ const Blog: FC = () => {
         <h1 className="!text-4xl font-bold !mb-0 !text-left">
           Meu Dev Blog
         </h1>
-
+        <h2>
+          Aqui registrarei minhas aventuras mais recentes.
+        </h2>
         <hr className="golden mb-4" />
       </div>
 

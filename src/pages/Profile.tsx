@@ -1,6 +1,6 @@
 import Avatar from "@/assets/images/avatar/eu_ghibli.gif";
 
-export default function Profile() {
+const ProfilePage = () => {
   return (
     <div className="px-4 mx-auto max-w-7xl">
       {/* Título */}
@@ -15,7 +15,7 @@ export default function Profile() {
       {/* Container com conteúdo e avatar lado a lado */}
       <div className="flex flex-col md:flex-row items-start gap-4">
         {/* Conteúdo principal */}
-        <div className="w-full lg:w-[70%] px-0 md:px-6 relative z-10">
+        <div className="w-full xl:w-[70%] px-0 md:px-6 relative z-10">
           {/* Ficha do aventureiro */}
           <div className="rpgui-container framed-golden p-4 mb-4">
             <h1 className="text-3xl font-bold mb-2">Héric Vinícius Mendes</h1>
@@ -27,27 +27,33 @@ export default function Profile() {
             <br />
             <ul className="text-md space-y-2">
               <li>
-                <span className="text-yellow-400 font-semibold">Classe:</span>{" "}
+                <strong className="text-yellow-400 font-semibold">
+                  Classe:
+                </strong>{" "}
                 Desenvolvedor Front-end
               </li>
               <li>
-                <span className="text-yellow-400 font-semibold">
+                <strong className="text-yellow-400 font-semibold">
                   Alinhamento:
-                </span>{" "}
+                </strong>{" "}
                 Caoticamente Criativo
               </li>
               <li>
-                <span className="text-yellow-400 font-semibold">
+                <strong className="text-yellow-400 font-semibold">
                   Território:
-                </span>{" "}
+                </strong>{" "}
                 Matão, SP
               </li>
               <li>
-                <span className="text-yellow-400 font-semibold">Guildas:</span>{" "}
+                <strong className="text-yellow-400 font-semibold">
+                  Guildas:
+                </strong>{" "}
                 Dtec, Biotrônica, PolarSapiens
               </li>
               <li>
-                <span className="text-yellow-400 font-semibold">Armas:</span>{" "}
+                <strong className="text-yellow-400 font-semibold">
+                  Armas:
+                </strong>{" "}
                 React Blade, Ant Design Grimoire
               </li>
             </ul>
@@ -57,23 +63,40 @@ export default function Profile() {
             <h2 className="text-xl font-semibold mb-2">ESTATÍSTICAS</h2>
             <ul className="list-disc list-inside text-md space-y-1">
               <li>
-                <strong>Inteligência Técnica:</strong> 95
+                <strong className="text-yellow-400 font-semibold">
+                  Inteligência Técnica:
+                </strong>{" "}
+                95
               </li>
               <li>
-                <strong>Carisma em UX/UI:</strong> 90
+                <strong className="text-yellow-400 font-semibold">
+                  Carisma em UX/UI:
+                </strong>{" "}
+                90
               </li>
               <li>
-                <strong>Velocidade de Deploy:</strong> +30% Buff
+                <strong className="text-yellow-400 font-semibold">
+                  Velocidade de Deploy:
+                </strong>{" "}
+                +30% Buff
               </li>
               <li>
-                <strong>Contenção de Bugs:</strong> -40% em bugs críticos
+                <strong className="text-yellow-400 font-semibold">
+                  Contenção de Bugs:
+                </strong>{" "}
+                -40% em bugs críticos
               </li>
               <li>
-                <strong>Foco em Performance:</strong> +25% Agilidade
+                <strong className="text-yellow-400 font-semibold">
+                  Foco em Performance:
+                </strong>{" "}
+                +25% Agilidade
               </li>
               <li>
-                <strong>Contribuição em Guilda:</strong> Alto impacto
-                estratégico
+                <strong className="text-yellow-400 font-semibold">
+                  Contribuição em Guilda:
+                </strong>{" "}
+                Alto impacto estratégico
               </li>
             </ul>
             <br />
@@ -141,7 +164,7 @@ export default function Profile() {
         </div>
 
         {/* Avatar fixo */}
-        <div className="w-full lg:w-[30%] hidden lg:flex justify-center items-end relative z-1">
+        <div className=" xl:w-[30%] hidden xl:flex justify-center items-end relative z-1">
           <img
             src={Avatar}
             alt="Avatar RPG"
@@ -151,4 +174,6 @@ export default function Profile() {
       </div>
     </div>
   );
-}
+};
+
+export default ProfilePage;

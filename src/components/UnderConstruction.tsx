@@ -1,7 +1,7 @@
 import Gandalf from '@/assets/images/gandalf_pixel.png' 
 
 
-export default function UnderConstruction() {
+const UnderConstruction = ()=> {
   return (
     <div className="flex flex-col items-center justify-center px-4 text-center">
       <div className="rpgui-container framed-golden max-w-xl border-4 p-6 mt-10">
@@ -23,3 +23,5 @@ export default function UnderConstruction() {
     </div>
   );
 }
+
+export default UnderConstruction;

@@ -2,20 +2,17 @@ import { useNavigate } from "react-router-dom";
 
 const CTABox = () => {
   const navigate = useNavigate();
-  const handleClick = (action: string) => {
-    if (action === "contact") {
-      navigate("/contact");
-    } else if (action === "cv") {
-      console.log("Baixando CV...");
-    }
-  };
 
   return (
     <div className="rpgui-container framed-golden  flex flex-col md:flex-row justify-between items-center w-full p-6 mx-auto text-center md:text-start">
       <div>
         <p className="!text-xl !mb-2"> Curtiu esse portfólio?</p>
         <p className="text-sm text-white mb-6 ">
-        🗡️ <span className="text-yellow-300 italic">"Você viu o que eu posso fazer."</span><br /> 
+          🗡️{" "}
+          <span className="text-yellow-300 italic">
+            "Você viu o que eu posso fazer."
+          </span>
+          <br />
           Então <span className="text-green-400">entre em contato</span> e
           agende uma quest comigo!
           <br />
@@ -32,17 +29,21 @@ const CTABox = () => {
        justify-center items-center min-w-[300px]"
       >
         <button
-          className="rpgui-button w-full"
-          onClick={() => handleClick("contact")}
+          className="rpgui-button w-full text-yellow-300"
+          onClick={() => navigate("/contact")}
         >
-          <span>📩 Entrar em contato</span>
+          <strong>📩 Enviar msg</strong>
         </button>
-        <button
-          className="rpgui-button w-full"
-          onClick={() => handleClick("cv")}
+        <a
+          className=" w-full"
+          href="https://hericmendez.github.io/responsive-online-resume/"
+          target="_blank"
+          rel="noopener noreferrer"
         >
-          <span>📜 Baixar CV</span>
-        </button>
+          <button className="rpgui-button w-full">
+            <strong>📜 Baixar CV</strong>
+          </button>
+        </a>
       </div>
     </div>
   );
