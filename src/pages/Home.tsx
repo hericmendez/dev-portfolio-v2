@@ -33,8 +33,8 @@ const HomePage: FC = () => {
                   >
                     <Tooltip
                       content={
-                        <div className="rpgui-container framed-golden-2 p-2 w-100">
-                          <strong className="text-2xl">{item.name}</strong>
+                        <div className="rpgui-container framed-golden p-2 min-w-50">
+                          <strong className="text-xl">{item.name}</strong>
                           <ProgressBar fill={item.progressBar} label="xp:" />
                         </div>
                       }

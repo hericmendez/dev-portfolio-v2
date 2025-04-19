@@ -50,10 +50,10 @@ const ProjectsPage: React.FC = () => {
             </p>
 
             <button
-              className="rpgui-button golden mt-4 w-full text-xl"
+              className="rpgui-button !text-white mt-4 w-full text-xl"
               onClick={() => setSelectedProject(project)}
             >
-              <p> 📜 Detalhes</p>
+              <strong>Detalhes</strong>
             </button>
           </div>
         ))}

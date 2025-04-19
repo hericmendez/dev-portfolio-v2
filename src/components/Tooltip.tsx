@@ -39,7 +39,7 @@ const Tooltip = ({ content, children, delay = 400 }: TooltipProps) => {
       {active && (
         <div
           className={`absolute left-1/2 -translate-x-1/2 z-50 whitespace-nowrap bg-black text-white text-sm px-2 py-1 rounded shadow-md font-sans ${
-            position === "top" ? "-top-28" : "top-full mt-2"
+            position === "top" ? "-top-50" : "top-full mt-2"
           }`}
         >
           {content}

@@ -1,33 +1,54 @@
 import { useState } from "react";
 import { sendEmail } from "@/utils/emailjs";
-import icons from "@/assets/images/icons";
+import { socialLinks } from "@/constants/socialLinks";
 
-const { facebook, github, gmail, linkedin, steam, whatsapp } = icons;
-
-const ContactPage = ()=> {
+const ContactPage = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
   });
   const [status, setStatus] = useState<string>("");
+  const [errors, setErrors] = useState<Record<string, string>>({});
+
+  const validate = () => {
+    const newErrors: Record<string, string> = {};
+    if (!formData.name.trim()) newErrors.name = "O nome é obrigatório.";
+    if (!formData.email.trim()) {
+      newErrors.email = "O e-mail é obrigatório.";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = "Digite um e-mail válido.";
+    }
+    if (!formData.message.trim())
+      newErrors.message = "A mensagem é obrigatória.";
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+    setErrors({ ...errors, [e.target.name]: "" }); // limpa erro ao digitar
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setStatus("Enviando...");
 
+    if (!validate()) {
+      setStatus("Por favor, corrija os erros no formulário.");
+      return;
+    }
+
+    setStatus("Enviando...");
     const form = e.target as HTMLFormElement;
 
     try {
       await sendEmail(form);
       setStatus("Mensagem enviada com sucesso!");
-      setFormData({ name: "", email: "", message: "" }); // Limpar formulário após sucesso
+      setFormData({ name: "", email: "", message: "" });
+      setErrors({});
     } catch (error) {
       setStatus(`Ocorreu um erro ao enviar sua mensagem: ${error}`);
     }
@@ -52,7 +73,8 @@ const ContactPage = ()=> {
 
         <form
           onSubmit={handleSubmit}
-          className="rpgui-container framed-golden space-y-4 w-full flex flex-col items-center md:!p-10 "
+          className="rpgui-container framed-golden space-y-4 w-full flex flex-col items-center md:!p-10"
+          noValidate
         >
           <div className="rpgui-container framed-grey w-full">
             <input
@@ -61,8 +83,11 @@ const ContactPage = ()=> {
               placeholder="Seu nome"
               value={formData.name}
               onChange={handleChange}
-              className="rpgui-input "
+              className={`rpgui-input ${errors.name && "border-red-500"}`}
             />
+            {errors.name && (
+              <p className="text-red-500 mt-1 text-sm">{errors.name}</p>
+            )}
           </div>
 
           <div className="rpgui-container framed-grey w-full">
@@ -72,8 +97,13 @@ const ContactPage = ()=> {
               placeholder="Seu e-mail"
               value={formData.email}
               onChange={handleChange}
-              className="rpgui-input w-full"
+              className={`rpgui-input w-full ${
+                errors.email && "border-red-500"
+              }`}
             />
+            {errors.email && (
+              <p className="text-red-500 mt-1 text-sm">{errors.email}</p>
+            )}
           </div>
 
           <div className="rpgui-container framed-grey w-full">
@@ -83,16 +113,21 @@ const ContactPage = ()=> {
               value={formData.message}
               onChange={handleChange}
               rows={50}
-              style={{ height: "15em" }} // Ajuste o valor conforme necessário
-              className="rpgui-textarea w-full"
+              style={{ height: "15em" }}
+              className={`rpgui-textarea w-full ${
+                errors.message && "border-red-500"
+              }`}
             />
+            {errors.message && (
+              <p className="text-red-500 mt-1 text-sm">{errors.message}</p>
+            )}
           </div>
 
           <button
             type="submit"
-            className="rpgui-button  !text-2xl w-[100%] md:w-[50%]"
+            className="rpgui-button text-white !text-2xl w-[100%] md:w-[50%]"
           >
-            <span>Enviar Mensagem</span>
+            <strong>Enviar Mensagem</strong>
           </button>
         </form>
 
@@ -103,70 +138,23 @@ const ContactPage = ()=> {
             📡 Você consegue me encontrar nessas tavernas (vulgo redes sociais):
           </h2>
           <div className="flex space-x-4 ml-5">
-            <a
-              href="https://github.com/hericmendez"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-20 h-20"
-              title="GitHub"
-            >
-              <img src={github} alt="github icon" />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/hericmendes/"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="LinkedIn"
-              className="w-20 h-20"
-            >
-              {" "}
-              <img src={linkedin} alt="linkedin icon" />
-            </a>
-            <a
-              href="https://mail.google.com/mail/?view=cm&fs=1&to=heric.mendez00@gmail.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-20 h-20"
-              title="Email"
-            >
-              {" "}
-              <img src={gmail} alt="gmail icon" />
-            </a>
-            <a
-              href="https://api.whatsapp.com/send?phone=5516993868494"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-20 h-20"
-              title="Whatsapp"
-            >
-              {" "}
-              <img src={whatsapp} alt="gmail icon" />
-            </a>
-            <a
-              href="https://www.facebook.com/heric.mendes/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-20 h-20"
-              title="Facebook"
-            >
-              {" "}
-              <img src={facebook} alt="facebook icon" />
-            </a>
-            <a
-              href="https://steamcommunity.com/id/revimaxinga/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-20 h-20"
-              title="Steam"
-            >
-              {" "}
-              <img src={steam} alt="steam icon" />
-            </a>
+            {socialLinks.map((item, idx) => (
+              <a
+                key={idx}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-20 h-20"
+                title={item.title}
+              >
+                <img src={item.icon} alt={`${item.title} icon`} />
+              </a>
+            ))}
           </div>
         </div>
       </section>
     </div>
   );
-}
+};
 
 export default ContactPage;

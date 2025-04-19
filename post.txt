@@ -16,7 +16,7 @@ A ideia foi ir além de uma simples vitrine de projetos. Quis criar uma experiê
 👾 Curte ver evolução de projetos?
 Também deixei disponível a versão original de 2023 — pra quem quiser comparar e acompanhar de perto como minha abordagem em design e código amadureceu desde então.
 
-https://rpg-portfolio-react-hericmendez.vercel.app/
+🔗 https://rpg-portfolio-react-hericmendez.vercel.app/
 
 💡 Se você curte interfaces criativas e fora do comum, dá uma olhada!
 Tô sempre aberto a trocar ideia e conhecer novas oportunidades. 🚀

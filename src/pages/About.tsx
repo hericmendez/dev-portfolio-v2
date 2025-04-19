@@ -89,25 +89,29 @@ const AboutPage = () => {
           estudar ou até contribuir se quiser:
         </p>
 
-        <a href="#" target="_blank">
-          <button className="rpgui-button text-white">
+        <a
+          href="https://github.com/hericmendez"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <button className="rpgui-button text-white min-h-[100px] md:min-h-[70px] w-full md:w-[500px] mt-3 ">
             {" "}
-            🔗Acessar repositório no GitHub{" "}
+            <strong>🔗Acessar repositório no GitHub </strong>
           </button>
         </a>
       </section>
 
       <section className="mb-6">
-        <h2 className="text-xl !text-yellow-300 mb-2">📂 Repositório</h2>
+        <h2 className="text-xl !text-yellow-300 mb-2">📚 Biblioteca base</h2>
         <p>
           Este projeto não existiria sem o trabalho incrível do RonenNess e sua
           biblioteca CSS RPGUI:
         </p>
 
         <a href="https://ronenness.github.io/RPGUI/" target="_blank">
-          <button className="rpgui-button text-white">
+          <button className="rpgui-button text-white min-h-[100px] md:min-h-[70px] w-full md:w-[500px] mt-3">
             {" "}
-            🔗Acessar homepage da biblioteca{" "}
+            <strong>🔗Acessar homepage da RPGUI </strong>
           </button>
         </a>
       </section>

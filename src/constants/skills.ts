@@ -86,7 +86,7 @@ export const hardSkills = [
       "Framework ágil, versátil e furtivo. Ideal para incursões SSR e SEO.",
   },
   {
-    name: "Layouts Responsivos",
+    name: "Responsividade",
     icon: responsive,
     class: "Front-end",
     level: "9",

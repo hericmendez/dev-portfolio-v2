@@ -53,13 +53,10 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, setProject }) => {
         <p className="mb-4">{project.full_description}</p>
 
         {project.demo_link && (
-          <a
-            href={project.demo_link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="rpgui-button block w-full text-center mb-2"
-          >
-            🌐 Ver Projeto
+          <a href={project.demo_link} target="_blank" rel="noopener noreferrer">
+            <button className="rpgui-button block w-full text-center mb-2">
+              <strong> 🌐 Ver Projeto</strong>
+            </button>
           </a>
         )}
         {project.repository_link && (
@@ -67,16 +64,17 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, setProject }) => {
             href={project.repository_link}
             target="_blank"
             rel="noopener noreferrer"
-            className="rpgui-button block w-full text-center mb-2"
           >
-            🌐 Ver Código
+            <button className="rpgui-button block w-full text-center mb-2">
+              <strong> 🌐 Ver Código</strong>
+            </button>
           </a>
         )}
         <button
           onClick={() => setProject(null)}
-          className="rpgui-button w-full"
+          className="rpgui-button text-white block w-full text-center mb-2"
         >
-          ✖ Fechar
+          <strong> ✖ Fechar</strong>
         </button>
       </div>
     </div>
