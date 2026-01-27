@@ -30,13 +30,7 @@ const BlogPost = () => {
             });
 
     }, [slug]);
-function formatDate (input) {
-  const datePart = input.match(/\d+/g),
-  year = datePart[0], // get only two digits
-  month = datePart[1], day = datePart[2];
 
-  return day+'/'+month+'/'+year;
-}
     return (
         <div className="px-4 mx-auto">
             <div className="flex flex-col text-left">

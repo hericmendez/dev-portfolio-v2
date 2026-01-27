@@ -13,7 +13,7 @@ const AppRouter: FC = () => {
           <Route key={item.id} path={item.path} element={item.component} />
         ))}
         <Route path="/posts/:slug" element={<BlogPost />} />
-
+        <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
   );
