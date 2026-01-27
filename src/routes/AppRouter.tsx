@@ -3,6 +3,7 @@ import AppLayout from "@/layout/AppLayout";
 import NotFound from "@/pages/NotFound";
 import { Routes, Route } from "react-router-dom";
 import navItems from "./navigationConfig";
+import BlogPost from "@/pages/BlogPost";
 
 const AppRouter: FC = () => {
   return (
@@ -11,7 +12,8 @@ const AppRouter: FC = () => {
         {navItems.map((item) => (
           <Route key={item.id} path={item.path} element={item.component} />
         ))}
-        <Route path="*" element={<NotFound />} />
+        <Route path="/posts/:slug" element={<BlogPost />} />
+
       </Route>
     </Routes>
   );

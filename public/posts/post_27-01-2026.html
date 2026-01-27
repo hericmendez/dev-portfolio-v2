@@ -1,0 +1,130 @@
+<article>
+  <h2 class="font-bold text-2xl">Por que eu resolvi criar um mini blog no meu portfólio</h2>
+
+  <p>
+    Essa ideia não surgiu porque eu queria “produzir conteúdo”, nem virar referência, nem nada
+    parecido. Ela surgiu de uma necessidade bem mais simples: eu faço muita coisa, aprendo muita
+    coisa no processo… e depois esqueço metade.
+  </p>
+
+  <p>
+    Eu queria um lugar pra registrar o que estou fazendo <em>agora</em>. Sem pressão, sem algoritmo,
+    sem motor de blog, sem CMS. Só um espaço meu, quase um diário técnico público.
+  </p>
+
+  <br>
+  <h2 class="font-bold text-2xl">A ideia inicial</h2>
+
+  <p>
+    A proposta parecia simples: cada post seria um arquivo HTML isolado, e a página de blog
+    listaria esses arquivos como um blog tradicional. Ao clicar, o post seria carregado por completo.
+  </p>
+
+  <p>
+    Nada de banco de dados, nada de backend, nada de engine externa. HTML puro, React cuidando
+    da estrutura, e pronto.
+  </p>
+
+  <p>
+    Na minha cabeça, isso era trivial. Spoiler: não era.
+  </p>
+
+  <br>
+  <h2 class="font-bold text-2xl">Onde começou a dar ruim</h2>
+
+  <p>
+    O primeiro choque foi perceber que React Router não trabalha com arquivos, trabalha com
+    componentes. Um arquivo <code>.html</code> não é uma rota, é só conteúdo.
+  </p>
+
+  <p>
+    Por conta dessa característica do Router, cogitei por um instante migrar o projeto pra NextJS, mas logo desisti da ideia, pois teria que adaptar o projeto todo por causa de uma única feature. Nada inteligente.
+  </p>
+  <p>
+    Tentei criar uma rota do tipo <code>/posts/:id</code> esperando que o Router “abrisse” o HTML.
+    Resultado: página vazia, nenhum erro claro, só silêncio.
+  </p>
+
+  <p>
+    A frustração começou a bater forte quando tudo parecia certo:
+    o fetch retornava status 200, o arquivo “existia”, mas nada aparecia na tela.
+  </p>
+  <br>
+
+  <h2  class="font-bold text-2xl">O falso positivo mais traiçoeiro</h2>
+
+  <p>
+    O detalhe mais cruel de todos: o HTML que estava vindo no fetch não era o post.
+    Era o <code>index.html</code> do Vite.
+  </p>
+
+  <p>
+    Como o arquivo não estava sendo servido corretamente, o dev server devolvia o fallback
+    da SPA com status 200. Ou seja: não dava erro, mas também não dava certo.
+  </p>
+
+  <p>
+    Quando vi no log um <code>&lt;div id="root"&gt;</code> dentro do HTML retornado, a ficha caiu.
+    Eu não estava carregando conteúdo. Estava carregando a própria aplicação.
+  </p>
+
+  <br>
+  <h2 class="font-bold text-2xl">O clique</h2>
+
+  <p>
+    A virada de chave foi entender isso:
+    <strong>em uma SPA, HTML não é página — é dado</strong>.
+  </p>
+
+  <p>
+    O caminho certo era ter:
+  </p>
+
+  <ul>
+    <li>👉 uma rota real com um componente React (<code>BlogPost</code>)</li>
+    <li>👉 o HTML tratado como conteúdo estático</li>
+    <li>👉 o carregamento feito via <code>fetch</code> a partir da pasta <code>public/</code></li>
+  </ul>
+
+  <p>
+    E, principalmente: os posts não podiam ser documentos HTML completos.
+    Nada de <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code> ou <code>&lt;body&gt;</code>.
+    Apenas o conteúdo.
+  </p>
+
+  <br>
+  <h2 class="font-bold text-2xl">O resultado</h2>
+
+  <p>
+    Depois de alinhar o modelo mental com a ferramenta, tudo simplesmente funcionou.
+    Um único componente controla o layout, carrega o HTML certo, e renderiza o post.
+  </p>
+
+  <p>
+    Sem gambiarra, sem iframe, sem engine externa.
+    Só React fazendo o que ele sabe fazer, e HTML sendo tratado como deveria.
+  </p>
+
+  <br>
+  <h2 class="font-bold text-2xl">O que eu aprendi com isso</h2>
+
+  <ul>
+    <li>👉 Se algo não é um componente, ele não é uma rota</li>
+    <li>👉 Status 200 não significa sucesso — pode ser fallback</li>
+    <li>👉 SPA consome conteúdo, não páginas</li>
+    <li>👉 Simplicidade arquitetural exige clareza conceitual</li>
+  </ul>
+<br>
+ <h2 class="font-bold text-2xl">Conclusão</h2>
+  <p>
+    No fim, esse blog não é sobre escrever bem.
+    É sobre não perder o que eu aprendo no caminho.
+  </p>
+
+  <p>
+    Se alguém ler e se identificar, ótimo.
+    Se não, tudo bem também.
+    Esse espaço existe, antes de tudo, pra mim.
+  </p>
+  <p>Tenho certeza que daqui uns anos vou ler isso aqui, e me lembrar com carinho do que eu tava tentando fazer. Ou talvez eu ache tudo uma bosta. Mas o que importa é que o momento de agora está registrado pro meu eu do futuro se recordar.</p>
+</article>

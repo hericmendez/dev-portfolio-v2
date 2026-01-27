@@ -26,6 +26,9 @@ importers:
       react-konami-code:
         specifier: ^2.3.0
         version: 2.3.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      react-paginate:
+        specifier: ^8.3.0
+        version: 8.3.0(react@19.1.0)
       react-responsive-carousel:
         specifier: ^3.2.23
         version: 3.2.23
@@ -41,6 +44,9 @@ importers:
       react-use:
         specifier: ^17.6.0
         version: 17.6.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      streact:
+        specifier: ^2.0.1
+        version: 2.0.1(react@19.1.0)
       tailwindcss:
         specifier: ^4.1.1
         version: 4.1.1
@@ -1140,6 +1146,11 @@ packages:
       react: '>= 16.8.0'
       react-dom: '>= 16.8.0'
 
+  react-paginate@8.3.0:
+    resolution: {integrity: sha512-TptZE37HPkT3R+7AszWA++LOTIsIHXcCSWMP9WW/abeF8sLpJzExFB/dVs7xbtqteJ5njF6kk+udTDC0AR3y5w==}
+    peerDependencies:
+      react: ^16 || ^17 || ^18 || ^19
+
   react-responsive-carousel@3.2.23:
     resolution: {integrity: sha512-pqJLsBaKHWJhw/ItODgbVoziR2z4lpcJg+YwmRlSk4rKH32VE633mAtZZ9kDXjy4wFO+pgUZmDKPsPe1fPmHCg==}
 
@@ -1257,6 +1268,11 @@ packages:
 
   stacktrace-js@2.0.2:
     resolution: {integrity: sha512-Je5vBeY4S1r/RnLydLl0TBTi3F2qdfWmYsGvtfZgEI+SCprPppaIhQf5nGcal4gI4cGpCV/duLcAzT1np6sQqg==}
+
+  streact@2.0.1:
+    resolution: {integrity: sha512-EX5uLStLbrNFLz5UjdN3xBmo3XFh2cvRJ4aML0aIg3FNW1VuZI57kxvVfAQN2lMw4F2/fp5vQ9WhWcz0WMvRWw==}
+    peerDependencies:
+      react: '>=16.0.0'
 
   strip-json-comments@3.1.1:
     resolution: {integrity: sha512-6fPc+R4ihwqP6N/aIv2f1gMH8lOVtWQHoqC4yK6oSDVVocumAsfCqjkXnqiYMhmMwS/mEHLp7Vehlt3ql6lEig==}
@@ -2310,6 +2326,11 @@ snapshots:
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
 
+  react-paginate@8.3.0(react@19.1.0):
+    dependencies:
+      prop-types: 15.8.1
+      react: 19.1.0
+
   react-responsive-carousel@3.2.23:
     dependencies:
       classnames: 2.5.1
@@ -2445,6 +2466,10 @@ snapshots:
       error-stack-parser: 2.1.4
       stack-generator: 2.0.10
       stacktrace-gps: 3.1.2
+
+  streact@2.0.1(react@19.1.0):
+    dependencies:
+      react: 19.1.0
 
   strip-json-comments@3.1.1: {}
 

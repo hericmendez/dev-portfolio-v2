@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import UnderConstruction from "../components/UnderConstruction";
+import BlogIndex from "@/components/BlogIndex";
 const Blog: FC = () => {
   return (
     <div className="px-4 mx-auto">
@@ -13,8 +13,8 @@ const Blog: FC = () => {
         </h2>
         <hr className="golden mb-4" />
       </div>
-
-      <UnderConstruction />
+      <BlogIndex />
+      {/* <UnderConstruction /> */}
     </div>
   );
 };
