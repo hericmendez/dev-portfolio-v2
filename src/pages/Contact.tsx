@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { sendEmail } from "@/utils/emailjs";
-import { socialLinks } from "@/constants/socialLinks";
+import { socialLinks } from "@/data/socialLinks";
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({

@@ -36,7 +36,7 @@ const CTABox = () => {
         </button>
         <a
           className=" w-full"
-          href="https://hericmendez.github.io/responsive-online-resume/"
+          href="/resume/HERIC_VINICIUS-MENDES_DEV_RESUME(PT).pdf" download="HERIC_VINICIUS-MENDES_DEV_RESUME(PT).pdf"
           target="_blank"
           rel="noopener noreferrer"
         >

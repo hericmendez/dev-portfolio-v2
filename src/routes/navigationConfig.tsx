@@ -4,6 +4,7 @@ import Contact from "@/pages/Contact";
 import Home from "@/pages/Home";
 import Profile from "@/pages/Profile";
 import Projects from "@/pages/Projects";
+import Resume from "@/pages/Resume";
 import Skills from "@/pages/Skills";
 
 
@@ -49,6 +50,12 @@ const navigationConfig = [
     title: "About",
     path: "/about",
     component: <About />,
+  },
+  {
+    id: "resume",
+    title: "Resume",
+    path: "/resume",
+    component: <Resume />,
   },
 ];
 

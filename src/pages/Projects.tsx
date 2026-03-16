@@ -1,6 +1,6 @@
 import { Project } from "@/types/Project";
 import { useState } from "react";
-import { projects } from "@/constants/projects";
+import { projects } from "@/data/projects";
 import ProjectModal from "@/components/ProjectModal";
 
 const ProjectsPage: React.FC = () => {

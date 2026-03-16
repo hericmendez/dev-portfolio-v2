@@ -1,0 +1,254 @@
+<article class="mx-auto max-w-3xl px-6 py-12 text-zinc-800 dark:text-zinc-200">
+
+  <header class="mb-10">
+    <h1 class="text-4xl font-bold tracking-tight mb-4">
+      Save State: da API externa a um sistema próprio de coleta de dados
+    </h1>
+  </header>
+
+  <section class="space-y-5 leading-relaxed text-lg">
+    <p>Alguns projetos começam como experimentos. Outros começam como necessidades pessoais.</p>
+
+    <p>O <strong>Save State</strong> nasceu um pouco dos dois.</p>
+
+    <p>
+      Sempre joguei muitos games, principalmente RPGs e jogos longos, e com o tempo comecei a perceber um problema curioso:
+      minha própria memória já não dava mais conta de acompanhar tudo.
+    </p>
+
+    <p>
+      Qual foi mesmo aquele RPG que terminei anos atrás?<br/>
+      Em qual plataforma joguei aquele indie incrível?<br/>
+      Quais jogos ainda estão no meu backlog?
+    </p>
+
+    <p>
+      Existem sites que fazem algo parecido, mas eu queria algo mais pessoal — um sistema onde eu pudesse registrar
+      minha própria jornada como jogador.
+    </p>
+
+    <p>
+      Foi assim que surgiu o <strong>Save State</strong>, uma aplicação web pensada para registrar, organizar e revisitar
+      todos os jogos que já joguei ou ainda pretendo jogar.
+    </p>
+
+    <p>
+      A ideia é simples: criar uma espécie de <strong>memória estruturada da jornada gamer</strong>.
+    </p>
+
+    <p>
+      Cada jogo registrado pode conter metadados como plataforma, status (jogando, finalizado, backlog),
+      desenvolvedores, publishers, data de lançamento e outras informações relevantes.
+    </p>
+
+    <p>
+      Mas, como acontece com quase todo projeto de software, a ideia inicial era apenas o começo.
+    </p>
+  </section>
+
+  <section class="mt-12 space-y-5 leading-relaxed text-lg">
+    <h2 class="text-2xl font-semibold mt-8 mb-4">A primeira arquitetura</h2>
+
+    <p>
+      A primeira versão do Save State foi construída com um objetivo claro:
+      <strong>funcionar o mais rápido possível</strong>.
+    </p>
+
+    <p>
+      Para obter os metadados dos jogos, o projeto consumia diretamente a
+      <strong>IGDB API</strong>, uma base de dados bastante popular sobre videogames.
+    </p>
+
+    <p>Essa abordagem tinha vantagens claras:</p>
+
+    <ul class="list-disc pl-6 space-y-2">
+      <li>implementação rápida</li>
+      <li>grande quantidade de dados disponíveis</li>
+      <li>integração relativamente simples</li>
+    </ul>
+
+    <p>
+      Na prática, bastava fazer uma requisição para a API e obter informações como nome do jogo,
+      capa, data de lançamento e estúdios envolvidos.
+    </p>
+
+    <p>Para um protótipo, isso era mais do que suficiente.</p>
+
+    <p>
+      Mas conforme o projeto começou a crescer, algumas limitações começaram a aparecer.
+    </p>
+  </section>
+
+  <section class="mt-12 space-y-5 leading-relaxed text-lg">
+    <h2 class="text-2xl font-semibold mt-8 mb-4">
+      Problemas que começaram a surgir
+    </h2>
+
+    <p>
+      Com o tempo, alguns aspectos da arquitetura começaram a gerar fricção durante o desenvolvimento.
+    </p>
+
+    <p>O primeiro deles foi <strong>estrutura de código</strong>.</p>
+
+    <p>Durante a fase inicial, algumas decisões rápidas acabaram levando a:</p>
+
+    <ul class="list-disc pl-6 space-y-2">
+      <li>trechos de <strong>código duplicado</strong></li>
+      <li><strong>tipagem inconsistente em TypeScript</strong></li>
+      <li>responsabilidades espalhadas em diferentes partes da aplicação</li>
+    </ul>
+
+    <p>
+      Nada disso quebrava o sistema, mas tornava a evolução do projeto cada vez mais desconfortável.
+    </p>
+
+    <p>
+      Outro ponto era a <strong>arquitetura geral do projeto</strong>.
+    </p>
+
+    <p>Inicialmente, o sistema estava dividido entre:</p>
+
+    <ul class="list-disc pl-6 space-y-2">
+      <li>um backend em <strong>NestJS</strong></li>
+      <li>um frontend em <strong>Next.js</strong></li>
+    </ul>
+
+    <p>
+      Na prática, essa separação acabou criando <strong>redundâncias desnecessárias</strong>,
+      já que parte das responsabilidades poderia ser resolvida diretamente no próprio ambiente do Next.
+    </p>
+
+    <p>
+      Mas o problema mais frustrante estava na dependência da <strong>IGDB API</strong>.
+    </p>
+
+    <p>Apesar de ser uma excelente base de dados, algumas questões começaram a aparecer:</p>
+
+    <ul class="list-disc pl-6 space-y-2">
+      <li>jogos com <strong>dados incompletos ou inconsistentes</strong></li>
+      <li><strong>limitações de uso da API</strong></li>
+      <li>
+        uma decisão curiosa de design: muitas consultas que naturalmente seriam
+        <strong>GET</strong> precisavam ser feitas via <strong>POST</strong>
+      </li>
+    </ul>
+
+    <p>
+      Isso não impedia o sistema de funcionar, mas criava uma dependência forte de uma API externa
+      sobre a qual eu não tinha controle.
+    </p>
+
+    <p>
+      Foi nesse ponto que ficou claro que o projeto precisava de uma mudança estrutural.
+    </p>
+  </section>
+
+  <section class="mt-12 space-y-5 leading-relaxed text-lg">
+    <h2 class="text-2xl font-semibold mt-8 mb-4">
+      O grande refactor
+    </h2>
+
+    <p>
+      Em vez de apenas corrigir problemas pontuais, decidi aproveitar o momento para realizar um
+      <strong>refactor mais profundo na arquitetura do Save State</strong>.
+    </p>
+
+    <p>Esse refactor incluiu várias mudanças:</p>
+
+    <ul class="list-disc pl-6 space-y-2">
+      <li>simplificação da estrutura geral do projeto</li>
+      <li>reorganização das responsabilidades entre frontend e backend</li>
+      <li>padronização das tipagens em TypeScript</li>
+      <li>remoção de redundâncias arquiteturais</li>
+    </ul>
+
+    <p>
+      Mas a mudança mais significativa foi repensar completamente a
+      <strong>forma como o sistema obtém os dados dos jogos</strong>.
+    </p>
+  </section>
+
+  <section class="mt-12 space-y-5 leading-relaxed text-lg">
+    <h2 class="text-2xl font-semibold mt-8 mb-4">
+      Uma nova abordagem para os dados
+    </h2>
+
+    <p>
+      Em vez de depender diretamente de uma única API externa, o Save State passou a evoluir para
+      um modelo diferente: <strong>um sistema próprio de coleta e agregação de dados</strong>.
+    </p>
+
+    <p>
+      Esse sistema, ainda em desenvolvimento, funciona através de
+      <strong>scraping estruturado</strong>.
+    </p>
+
+    <p>A ideia é relativamente simples:</p>
+
+    <ol class="list-decimal pl-6 space-y-2">
+      <li>o sistema recebe um termo de busca</li>
+      <li>consulta múltiplas fontes públicas</li>
+      <li>extrai os dados relevantes dessas fontes</li>
+      <li>avalia a confiabilidade das informações</li>
+      <li>normaliza e estrutura os dados antes de retorná-los</li>
+    </ol>
+
+    <p>
+      Com isso, o projeto deixa de ser apenas um consumidor de API e passa a ter uma
+      <strong>camada própria de ingestão de dados</strong>.
+    </p>
+
+    <p>Isso traz algumas vantagens importantes:</p>
+
+    <ul class="list-disc pl-6 space-y-2">
+      <li>maior controle sobre os dados coletados</li>
+      <li>possibilidade de combinar múltiplas fontes</li>
+      <li>flexibilidade para evoluir o sistema no futuro</li>
+    </ul>
+  </section>
+
+  <section class="mt-12 space-y-5 leading-relaxed text-lg">
+    <h2 class="text-2xl font-semibold mt-8 mb-4">
+      Status atual
+    </h2>
+
+    <p>
+      O mecanismo de scraping ainda está em desenvolvimento, mas já representa
+      uma mudança significativa na arquitetura do projeto.
+    </p>
+
+    <p>
+      O Save State continua sendo, em essência, uma aplicação para registrar jogos.
+    </p>
+
+    <p>
+      Mas tecnicamente ele está se tornando algo mais interessante:
+      um sistema capaz de <strong>coletar, organizar e consolidar conhecimento
+      sobre jogos a partir de múltiplas fontes</strong>.
+    </p>
+  </section>
+
+  <section class="mt-12 space-y-5 leading-relaxed text-lg">
+    <h2 class="text-2xl font-semibold mt-8 mb-4">
+      Mais do que um catálogo de jogos
+    </h2>
+
+    <p>
+      No fim das contas, o objetivo do Save State continua sendo simples:
+      criar um lugar onde eu — e eventualmente outros jogadores —
+      possamos <strong>registrar nossa própria história com os jogos
+      que marcaram nossa jornada</strong>.
+    </p>
+
+    <p>
+      Mas, como acontece com muitos projetos pessoais, o caminho até lá acabou
+      se tornando tão interessante quanto o próprio destino.
+    </p>
+
+    <p>
+      Às vezes você começa tentando resolver um problema pequeno…
+      e acaba aprendendo muito mais do que esperava.
+    </p>
+  </section>
+
+</article>

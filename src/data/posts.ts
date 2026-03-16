@@ -3,6 +3,14 @@ import { Post } from '@/types/Post'
 
 export const posts: Post[] = [
   {
+    slug: 'post_16-03-2026',
+    title: 'Projeto Save State',
+    excerpt: 'Meu maior projeto pessoal (até agora), neste post explico a mudança de abordagem que tomei no desenvolvimento deste projeto.',
+    author: "Héric Mendes",
+    date: '03-16-2026',
+    url: '/posts/post_27-01-2026'
+  },
+  {
     slug: 'post_27-01-2026',
     title: 'Criando um mini blog sem CMS',
     excerpt: 'Explorando uma abordagem simples para documentar o progresso dos meus projetos ou simplesmente registrar coisas legais que estou fazendo.',

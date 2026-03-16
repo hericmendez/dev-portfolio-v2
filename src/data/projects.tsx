@@ -24,6 +24,142 @@ const {
 export const projects: Project[] = [
   {
     id: 1,
+    title: "Sistema Remedio",
+    thumbnail: thumbs.remedio,
+    status: "descontinuado",
+    screenshots: [remedio_01, remedio_02, remedio_03],
+    tags: ["React", "SpringBoot", "PostgreSQL"],
+    meta_description: "Plataforma digital de reembolso médico com processamento automatizado.",
+    full_description: (
+      <div>
+        <p>
+          Sistema Remedio foi uma plataforma digital voltada à otimização do
+          processo de reembolso de despesas médicas. O sistema automatizava o
+          envio e validação de documentos, organizava registros financeiros e
+          facilitava o processamento administrativo de solicitações de
+          reembolso.
+        </p>
+
+        <p>
+          O front-end foi desenvolvido com React utilizando a biblioteca Ant
+          Design para construção da interface, enquanto o back-end foi
+          implementado em Java com Spring Boot e banco de dados PostgreSQL.
+          A aplicação também incluía dashboards administrativos para
+          visualização de dados e acompanhamento de solicitações.
+        </p>
+
+        <p>
+          Apesar de tecnicamente sólido, o projeto foi descontinuado antes da
+          finalização por motivos estratégicos da empresa responsável.
+        </p>
+      </div>
+    ),
+    demo_link: "",
+    repository_link: "",
+  },
+    {
+    id: 2,
+    title: "Homely",
+    thumbnail: '',//thumbs.homely,
+    status: "em desenvolvimento",
+    screenshots: [],
+    tags: ["React", "Node.js", "PostgreSQL"],
+    meta_description: "Plataforma web para gestão de propriedades e administração imobiliária.",
+    full_description: (
+      <div>
+        <p>
+          Homely é uma plataforma web voltada à gestão de propriedades e
+          administração de imóveis, com foco em simplificar processos
+          operacionais para proprietários, administradores e inquilinos.
+        </p>
+
+        <p>
+          O sistema inclui ferramentas para gerenciamento de propriedades,
+          cadastro de inquilinos, controle de informações contratuais e
+          organização de dados relacionados à administração imobiliária.
+        </p>
+
+        <p>
+          O projeto foi desenvolvido utilizando React no front-end e
+          integrações backend para manipulação e persistência de dados. Parte
+          dos detalhes técnicos da implementação não podem ser divulgados por
+          restrições contratuais.
+        </p>
+      </div>
+    ),
+    demo_link: "",
+    repository_link: "",
+  },
+
+  {
+    id: 3,
+    title: "ClickJumbo",
+    thumbnail: '',//thumbs.clickjumbo,
+    status: "produção",
+    screenshots: [],
+    tags: ["JavaScript", "WordPress", "PHP", "REST API"],
+    meta_description: "Plataforma completa de ecommerce com checkout e gestão de pedidos.",
+    full_description: (
+      <div>
+        <p>
+          ClickJumbo é uma plataforma completa de ecommerce desenvolvida para
+          gerenciar todo o fluxo de vendas digitais, incluindo catálogo de
+          produtos, carrinho de compras, checkout e gerenciamento de pedidos.
+        </p>
+
+        <p>
+          O sistema foi construído com front-end em HTML, CSS e JavaScript,
+          consumindo APIs personalizadas integradas ao WordPress e WooCommerce.
+          Plugins customizados foram desenvolvidos em PHP para implementar
+          regras de negócio específicas e funcionalidades administrativas.
+        </p>
+
+        <p>
+          A plataforma também integra métodos de pagamento brasileiros como
+          Pix e Boleto, além de serviços de envio, permitindo que todo o fluxo
+          de compra funcione de forma automatizada dentro do ambiente da loja.
+        </p>
+      </div>
+    ),
+    demo_link: "",
+    repository_link: "",
+  },
+
+  {
+    id: 4,
+    title: "Save State",
+    thumbnail: thumbs.savestate,
+    status: "em desenvolvimento",
+    screenshots: [savestate_01],
+    tags: ["Next.js", "MongoDB", "TypeScript", "Web Scraping"],
+    meta_description: "Plataforma de agregação e organização de metadados de jogos.",
+    full_description: (
+      <div>
+        <p>
+          Save State é uma plataforma voltada à agregação e organização de
+          metadados de jogos digitais. O sistema coleta informações de
+          diferentes fontes públicas utilizando técnicas de web scraping e
+          integração com APIs externas.
+        </p>
+
+        <p>
+          Os dados coletados passam por um processo de normalização para
+          resolver inconsistências entre diferentes provedores, permitindo
+          criar um catálogo unificado de jogos com informações confiáveis.
+        </p>
+
+        <p>
+          A aplicação também inclui um sistema de busca e indexação capaz de
+          consultar milhares de registros rapidamente, além de uma interface
+          web para explorar e organizar bibliotecas pessoais de jogos.
+        </p>
+      </div>
+    ),
+    demo_link: "",
+    repository_link: "",
+  },
+  {
+    id: 1,
     title: "Lovelace.ai",
     thumbnail: thumbs.lovelace,
     status: "concluído",
@@ -50,6 +186,9 @@ export const projects: Project[] = [
           Este é um projeto fullstack feito com React e NodeJS+Express, e a LLM
           recebe instruções para responder apenas perguntas relacionadas a
           matemática direto na requisição.
+        </p>
+        <p>
+          Infelizmente o projeto não está mais funcional, devido a necessidade de tokens de IA. Mas a ideia ainda é válida para ser exibida aqui.
         </p>
         "
       </div>
@@ -81,52 +220,7 @@ export const projects: Project[] = [
     demo_link: "https://next-movie-meme-generator.vercel.app/",
     repository_link: "https://github.com/hericmendez/next-movie-meme-generator",
   },
-  {
-    id: 3,
-    title: "Sistema Remedio",
-    thumbnail: thumbs.remedio,
-    status: "descontinuado",
-    screenshots: [remedio_01, remedio_02, remedio_03],
-    tags: ["React", "SpringBoot", "PostgreSQL"],
-    meta_description: "Sistema de reembolso médico com foco em otimização.",
-    full_description: (
-      <div>
-        <p>
-          Sistema Remedio foi um projeto voltado ao reembolso de despesas
-          médicas, com funcionalidades voltadas à automação de envio de
-          documentos, análise de elegibilidade e controle de pagamentos, feito
-          usando React com a biblioteca Ant Design no Front-end, e
-          Java+SpringBoot+PostgreSQL no back-end. Embora promissor, o projeto
-          foi descontinuado antes da finalização por motivos estratégicos.
-        </p>
-      </div>
-    ),
-    demo_link: "",
-    repository_link: "",
-  },
-  {
-    id: 4,
-    title: "Save State",
-    thumbnail: thumbs.savestate,
-    status: "em andamento",
-    screenshots: [savestate_01],
-    tags: ["React", "NodeJS", "SQL", "IGDB API", "Twitch OAuth"],
-    meta_description:
-      "Registre, catalogue e acompanhe sua jornada gamer em uma aplicação que transborda nostalgia.",
-    full_description: (
-      <div>
-        <p>
-          Save State é uma aplicação pessoal criada para registrar, buscar e
-          organizar jogos já zerados ou desejados, com integração à API da IGDB.
-          O app permite favoritar, marcar como concluído e explorar novas
-          recomendações, tudo com um visual nostálgico inspirado em consoles
-          clássicos.
-        </p>
-      </div>
-    ),
-    demo_link: "",
-    repository_link: "https://github.com/hericmendez/save-state-frontend",
-  },
+
   {
     id: 5,
     title: "Flappyvania",

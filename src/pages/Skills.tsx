@@ -2,7 +2,7 @@
 import { FC } from "react";
 import RpguiCard from "@/components/RpguiCard";
 import Tabs, { Tab } from "@/components/PageTabs";
-import { hardSkills, hobbies, softSkills } from "@/constants/skills";
+import { hardSkills, hobbies, softSkills } from "@/data/skills";
 import ProgressBar from "@/components/ProgressBar";
 const SkillsPage: FC = () => {
   return (

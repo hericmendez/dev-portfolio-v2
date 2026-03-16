@@ -1,7 +1,7 @@
 import CTABox from "@/components/CTAbox";
 import ProgressBar from "@/components/ProgressBar";
 import { FC } from "react";
-import { hardSkills } from "@/constants/skills";
+import { hardSkills } from "@/data/skills";
 console.log("hardSkills ==> ", hardSkills.length);
 import Tooltip from "@/components/Tooltip";
 import { Link } from "react-router";
@@ -70,14 +70,11 @@ const HomePage: FC = () => {
 
       <div>
         <ul className="text-xl space-y-1 list-none mb-8">
-          <li className="mb-2">🏢 Front end Freelancer Dev (Web/Mobile)</li>
+          <li className="mb-2">🏢 Fullstack end Freelancer Dev (Web/Mobile)</li>
           <li className="mb-2">
             🎓 Cursando Análise e Desenvolvimento de Sistemas
           </li>
-          <li className="mb-2">🇬🇧 Inglês Fluente</li>
-          <li className="mb-2">
-            📜 Atualmente explorando a linguagem Python e aplicações em IA
-          </li>
+          <li className="mb-2">🇬🇧 Inglês Acançado (C1)</li>
         </ul>
       </div>
 
