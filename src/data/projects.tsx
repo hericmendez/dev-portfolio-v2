@@ -98,7 +98,7 @@ export const projects: Project[] = [
     title: "ClickJumbo",
     thumbnail: thumbs.clickjumbo,
     status: "produção",
-    screenshots: [],
+    screenshots: [clickjumbo_01, clickjumbo_02],
     tags: ["JavaScript", "WordPress", "PHP", "REST API"],
     meta_description: "Plataforma completa de ecommerce com checkout e gestão de pedidos.",
     full_description: (
