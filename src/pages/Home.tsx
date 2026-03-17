@@ -74,7 +74,7 @@ const HomePage: FC = () => {
           <li className="mb-2">
             🎓 Cursando Análise e Desenvolvimento de Sistemas
           </li>
-          <li className="mb-2">🇬🇧 Inglês Acançado (C1)</li>
+          <li className="mb-2">🇬🇧 Inglês Avançado (C1)</li>
         </ul>
       </div>
 
