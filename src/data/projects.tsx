@@ -6,6 +6,8 @@ const {
   acdc_01,
   acdc_02,
   acdc_03,
+  clickjumbo_01,
+  clickjumbo_02,
   flappyvania_01,
   flappyvania_02,
   lovelace_01,
@@ -60,7 +62,7 @@ export const projects: Project[] = [
     {
     id: 2,
     title: "Homely",
-    thumbnail: '',//thumbs.homely,
+      thumbnail: thumbs.homely,
     status: "em desenvolvimento",
     screenshots: [],
     tags: ["React", "Node.js", "PostgreSQL"],
@@ -94,7 +96,7 @@ export const projects: Project[] = [
   {
     id: 3,
     title: "ClickJumbo",
-    thumbnail: '',//thumbs.clickjumbo,
+    thumbnail: thumbs.clickjumbo,
     status: "produção",
     screenshots: [],
     tags: ["JavaScript", "WordPress", "PHP", "REST API"],

@@ -3,12 +3,20 @@ import { Post } from '@/types/Post'
 
 export const posts: Post[] = [
   {
+    slug: 'post_17-03-2026',
+    title: 'Projeto Save State - Super Crud Concluído',
+    excerpt: 'Aqui explico como desenvolvi o CRUD do Save State, e como implementei relacionamentos e features de scraping para form auto-fill.',
+    author: "Héric Mendes",
+    date: '03-16-2026',
+    url: '/posts/post_17-03-2026'
+  },
+  {
     slug: 'post_16-03-2026',
-    title: 'Projeto Save State',
+    title: 'Projeto Save State - Refatoração e mudanças conceituais',
     excerpt: 'Meu maior projeto pessoal (até agora), neste post explico a mudança de abordagem que tomei no desenvolvimento deste projeto.',
     author: "Héric Mendes",
     date: '03-16-2026',
-    url: '/posts/post_27-01-2026'
+    url: '/posts/post_16-03-2026'
   },
   {
     slug: 'post_27-01-2026',

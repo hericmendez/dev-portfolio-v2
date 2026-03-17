@@ -1,0 +1,359 @@
+<article class="w-full mx-5 px-6 py-12 text-zinc-800 leading-relaxed">
+
+  <header class="mb-10">
+    <h1 class="!text-left text-4xl font-bold mb-4">
+      Save State – Construindo um CRUD que não é só um CRUD
+    </h1>
+    <p class="text-lg text-zinc-600">
+      Como um erro de modelagem levou a uma refatoração completa da arquitetura
+      e à criação de um sistema de scraping para automatizar o cadastro de jogos.
+    </p>
+  </header>
+
+  <section class="space-y-6">
+    <p>
+      Recentemente finalizei a <strong>primeira grande etapa do Save State</strong>:
+      o sistema de CRUD de jogos.
+    </p>
+
+    <p>
+      Mas chamar isso apenas de CRUD seria uma simplificação injusta.
+      Não estamos falando de uma típica <em>todo list</em> de tutorial.
+      Essa funcionalidade envolve <strong>modelagem de dados com relacionamentos,
+      scraping de múltiplas fontes e preenchimento automático de formulários</strong>.
+    </p>
+
+    <!-- IMAGEM: estrutura do projeto -->
+    <figure class="my-8">
+      <img src="/prints/savestate_files_folders.png" class="rounded-lg shadow-lg" />
+      <figcaption class="text-md text-zinc-300 mt-2 mb-4">
+        Estrutura do projeto mostrando a separação entre scraping, ranking, providers e sources.
+        Aqui já dá pra ver que o sistema deixou de ser um simples CRUD e virou uma mini engine de coleta e processamento de dados.
+      </figcaption>
+    </figure>
+
+    <p>
+      E tudo começou com um erro de arquitetura.
+    </p>
+
+    <div class="bg-zinc-100 border border-zinc-200 rounded-lg p-4 font-mono text-sm">
+      CRUD → relacionamento entre entidades → problemas de modelagem
+    </div>
+
+  </section>
+
+  <section class="mt-12 space-y-6">
+    <h2 class="text-2xl font-semibold">
+      O problema: um relacionamento invertido
+    </h2>
+
+    <p>
+      Antes de fazer um grande refactor no projeto, eu já tinha claro o que queria
+      construir: um sistema onde usuários pudessem
+      <strong>criar listas personalizadas de jogos</strong> e registrar sua
+      experiência com cada um deles.
+    </p>
+
+    <p>
+      A ideia parecia simples: listas contêm jogos.
+    </p>
+
+    <!-- IMAGEM: menu de listas -->
+    <figure class="my-8">
+      <img src="/prints/savestate_game_lists_menu.png" class="rounded-lg shadow-lg" />
+      <figcaption class="text-md text-zinc-300 mt-2 mb-4">
+        Interface de listas do usuário (Favoritos, Zerados, Jogando, Wishlist).
+        Esse é exatamente o tipo de estrutura que induz ao erro conceitual inicial: pensar que jogos “pertencem” às listas.
+      </figcaption>
+    </figure>
+
+    <div class="bg-zinc-900 text-zinc-100 rounded-lg p-4 font-mono text-sm">
+User → Lists → Games
+    </div>
+
+    <p>
+      Mas esse modelo escondia um problema estrutural.
+    </p>
+
+    <p>
+      No banco de dados, <strong>um jogo só podia existir se estivesse dentro de
+      uma lista</strong>. Isso criava algumas situações estranhas:
+    </p>
+
+    <ul class="list-disc pl-6 space-y-2">
+      <li>Se uma lista fosse excluída, todos os jogos associados desapareciam.</li>
+      <li>Ou então os jogos ficavam “órfãos” no banco de dados.</li>
+      <li>Não existia o conceito de um jogo existir independentemente de uma lista.</li>
+    </ul>
+
+    <p>
+      Demorei um pouco para perceber que o problema não estava na implementação.
+      Estava <strong>na forma como eu estava pensando o relacionamento</strong>.
+    </p>
+
+    <div class="bg-zinc-100 border border-zinc-200 rounded-lg p-4 font-mono text-sm">
+Antes:
+List → Games
+
+Problema:
+Delete(List) → Delete(Games)
+    </div>
+
+    <p>
+      A solução acabou sendo uma inversão conceitual simples:
+    </p>
+
+    <blockquote class="border-l-4 border-zinc-300 pl-4 italic text-yellow-200">
+      jogos devem conter listas, e não o contrário.
+    </blockquote>
+
+    <div class="bg-zinc-900 text-zinc-100 rounded-lg p-4 font-mono text-sm">
+Depois:
+Game → [Lists]
+    </div>
+
+    <p>
+      Depois dessa mudança, cada jogo passou a ter um
+      <strong>array de IDs de listas</strong> às quais pertence.
+    </p>
+
+    <div class="bg-zinc-100 border border-zinc-200 rounded-lg p-4 font-mono text-sm">
+Novo modelo:
+
+User → Games → [Lists]
+
+Game:
+{
+  id,
+  user_id,
+  lists: [list_id_1, list_id_2]
+}
+    </div>
+
+    <p>
+      Isso trouxe algumas vantagens imediatas:
+    </p>
+
+    <ul class="list-disc pl-6 space-y-2">
+      <li>Jogos e listas passaram a ser <strong>entidades independentes</strong>.</li>
+      <li>Posso criar listas vazias.</li>
+      <li>Posso ter jogos que ainda não pertencem a nenhuma lista.</li>
+      <li>Remover uma lista não afeta a existência do jogo.</li>
+    </ul>
+
+    <p>
+      Com essa base corrigida, implementar o restante ficou muito mais direto.
+      Criei as rotas <strong>GET, POST, PATCH e DELETE</strong> para listas e jogos,
+      completando o núcleo do CRUD.
+    </p>
+
+    <div class="bg-zinc-100 border border-zinc-200 rounded-lg p-4 font-mono text-sm">
+API:
+
+GET /games
+POST /games
+PATCH /games/:id
+DELETE /games/:id
+
+GET /lists
+POST /lists
+PATCH /lists/:id
+DELETE /lists/:id
+    </div>
+
+    <p>
+      Mas essa era apenas metade do desafio.
+    </p>
+  </section>
+
+  <section class="mt-12 space-y-6">
+    <h2 class="text-2xl font-semibold">
+      O segundo problema: de onde vêm os dados dos jogos?
+    </h2>
+
+    <p>
+      A entidade <code class="bg-zinc-500 px-2 py-1 rounded text-sm">Game</code>
+      foi pensada desde cedo com dois tipos de informação:
+    </p>
+
+    <ul class="list-disc pl-6 space-y-2">
+      <li><strong>Metadados do jogo</strong> (informações objetivas)</li>
+      <li><strong>Dados do jogador</strong> (experiência pessoal)</li>
+    </ul>
+
+    <!-- IMAGEM: formulário -->
+    <figure class="my-8">
+      <img src="/prints/savestate_crud_form.png" class="rounded-lg shadow-lg" />
+      <figcaption class="text-md text-zinc-300 mt-2 mb-4">
+        Formulário de criação de jogo. Sem automação, isso vira um trabalho manual pesado —
+        exatamente o problema que levou à criação do sistema de scraping.
+      </figcaption>
+    </figure>
+
+    <div class="bg-zinc-900 text-zinc-100 rounded-lg p-4 font-mono text-sm">
+Game
+├── game_data   → dados do jogo
+└── player_data → experiência do jogador
+    </div>
+
+    <p>Algo mais ou menos assim:</p>
+
+    <pre class="bg-zinc-900 text-zinc-100 p-4 rounded-lg overflow-x-auto text-sm">
+{
+  "_id": "001",
+  "user_id": "001",
+  "game_data": {
+    // nome, developers, publishers, data de lançamento, etc
+  },
+  "player_data": {
+    // nota pessoal, vezes zerado, horas jogadas, review, listas
+  }
+}
+    </pre>
+
+    <p>
+      Os dados de <code class="bg-zinc-500 px-2 py-1 rounded text-sm">player_data</code>
+      obviamente vêm do usuário.
+    </p>
+
+    <p>
+      Mas os dados de
+      <code class="bg-zinc-500 px-2 py-1 rounded text-sm">game_data</code>
+      precisam vir de algum lugar confiável.
+    </p>
+
+    <p>
+      Inicialmente pensei em usar a <strong>IGDB API</strong>.
+      Na prática, porém, os dados eram inconsistentes ou incompletos.
+      Sem contar que a estrutura "não ortodoxa" das rotas da IGDB API (POST request pra tudo, inclusive onde deveria ser GET) não ajudavam nem um pouco. Que beleza 💩
+    </p>
+
+    <div class="bg-zinc-100 border border-zinc-200 rounded-lg p-4 font-mono text-sm">
+Primeira versão:
+
+User → Form → IGDB API → Database
+    </div>
+
+    <p>
+      Na primeira versão do sistema, a solução foi simples:
+      o usuário preenchia quase tudo manualmente.
+    </p>
+
+    <p>
+      Funcionava… mas não era exatamente a experiência que eu queria criar.
+    </p>
+  </section>
+
+  <section class="mt-12 space-y-6">
+    <h2 class="text-2xl font-semibold">
+      A solução: scraping e preenchimento automático
+    </h2>
+
+    <p>
+      Na nova versão do projeto, resolvi atacar o problema de outra forma.
+    </p>
+
+    <p>
+      Em vez de depender de uma única API, comecei a desenvolver
+      um <strong>sistema de scraping com múltiplas fontes</strong>.
+    </p>
+
+    <!-- IMAGEM: resultado final -->
+    <figure class="my-8">
+      <img src="/prints/savestate_game_details_modal.png" class="rounded-lg shadow-lg" />
+      <figcaption class="text-md text-zinc-300 mt-2 mb-4">
+        Resultado final: dados do jogo já estruturados e enriquecidos automaticamente,
+        permitindo que o usuário foque só na experiência pessoal.
+      </figcaption>
+    </figure>
+
+    <div class="bg-zinc-900 text-zinc-100 rounded-lg p-4 font-mono text-sm">
+User → "Nome do jogo"
+     → Scraper Engine
+     → Data Processing
+     → Auto-filled Form
+     → Database
+    </div>
+
+    <p>
+      O sistema busca automaticamente:
+    </p>
+
+    <ul class="list-disc pl-6 space-y-2">
+      <li>gêneros</li>
+      <li>desenvolvedores</li>
+      <li>publishers</li>
+      <li>plataformas</li>
+      <li>data de lançamento</li>
+      <li>outros metadados</li>
+    </ul>
+
+    <p>
+      Também implementei um <strong>sistema de busca de capas</strong>.
+    </p>
+
+    <div class="bg-zinc-100 border border-zinc-200 rounded-lg p-4 font-mono text-sm">
+Scraper → Image Sources
+       → Ranking Algorithm
+       → Top 3 Covers
+       → User Choice
+    </div>
+
+    <p>
+      Com isso, o foco do aplicativo muda completamente.
+      O usuário pode se concentrar no que realmente importa:
+      <strong>registrar sua experiência pessoal com cada jogo</strong>.
+    </p>
+
+    <div class=" bg-zinc-900 text-zinc-100 rounded-lg p-4 font-mono text-sm">
+<span>Game → Player Experience</span><br>
+     <span class="ms-10 mb-0 ">├─ personal score</span><br/>
+     <span class="ms-10 mb-0">├─ review</span><br/>
+     <span class="ms-10 mb-0">├─ hours played</span><br/>
+     <span class="ms-10 mb-0">└─ times completed</span><br/>
+    </div>
+
+  </section>
+
+  <section class="mt-12 space-y-6">
+    <h2 class="text-2xl font-semibold">
+      Conclusão
+    </h2>
+
+    <p>
+      Ao final dessa etapa, o Save State deixou de ser apenas uma ideia
+      e se tornou uma <strong>aplicação funcional e escalável</strong>.
+    </p>
+
+    <div class="bg-zinc-100 border border-zinc-200 rounded-lg p-4 font-mono text-sm">
+Projeto inicial:
+CRUD simples
+
+Evolução:
+<code>
+CRUD → Data modeling → Scraping → Data processing
+
+</code>
+    </div>
+
+    <p>
+      O CRUD de jogos não é apenas um CRUD: ele já incorpora
+      sistemas de apoio como scraping, tratamento de dados
+      e ranking de fontes.
+    </p>
+
+    <p>
+      Ainda estou explorando as possibilidades de coletar
+      <strong>grandes volumes de dados vindos de múltiplas fontes</strong>,
+      algo que pode transformar o Save State em muito mais
+      do que um simples registro de jogos zerados.
+    </p>
+
+    <p>
+      Por enquanto, estou apenas no primeiro capítulo dessa história —
+      mas já estou ansioso para ver o projeto rodando em produção.
+    </p>
+
+  </section>
+
+</article>

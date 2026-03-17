@@ -1,6 +1,8 @@
 import acdc_01 from "./acdcit_01.png";
 import acdc_02 from "./acdcit_01.png";
 import acdc_03 from "./acdcit_01.png";
+import clickjumbo_01 from './clickjumbo_01.png';
+import clickjumbo_02 from './clickjumbo_02.png'
 import flappyvania_01 from "./flappyvania_01.png";
 import flappyvania_02 from "./flappyvania_01.png";
 import lovelace_01 from "./lovelace_01.jpeg";
@@ -20,6 +22,8 @@ export default {
   acdc_01,
   acdc_02,
   acdc_03,
+  clickjumbo_01,
+  clickjumbo_02,
   flappyvania_01,
   flappyvania_02,
   lovelace_01,
